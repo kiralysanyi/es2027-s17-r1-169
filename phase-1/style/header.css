@@ -1,5 +1,5 @@
 #offer-banner {
-    background-color:  var(--primary-color);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     line-height: 3rem;
@@ -16,10 +16,11 @@ header nav {
     flex-direction: row;
     align-items: center;
     justify-items: center;
-    justify-content: center;
+    justify-content: safe center;
     gap: 2rem;
     background-color: #F6F6F6;
     padding: 0.9rem;
+    scrollbar-width: none;
 }
 
 header nav span {
@@ -41,4 +42,19 @@ header nav span {
 .cta-button {
     margin-left: auto;
     align-self: flex-end;
+}
+
+@media (max-width: 910px) {
+    .header-top .input-group {
+        display: none;
+    }
+
+    header nav {
+        overflow-x: auto;
+    }
+
+    header nav span {
+        flex-shrink: 0;
+        min-width: max-content;
+    }
 }
