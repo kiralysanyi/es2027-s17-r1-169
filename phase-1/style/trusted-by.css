@@ -6,14 +6,31 @@
     align-items: center;
     gap: 1.5rem;
     padding: 2rem;
+    text-align: center;
 }
 
 .logos {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    justify-content: safe center;
+    width: 100%;
+    scrollbar-width: none;
 }
 
 .logos img {
     object-fit: contain;
+    max-width: 10%;
+}
+
+@media (max-width: 910px) {
+    .logos {
+        overflow-x: auto;
+    }
+
+    .logos img {
+        object-fit: contain;
+        max-width: auto;
+        min-width: max-content;
+    }
 }
