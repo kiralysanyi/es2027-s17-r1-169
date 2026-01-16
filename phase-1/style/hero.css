@@ -28,6 +28,12 @@
     margin-right: auto;
 }
 
+.hero-image img {
+    width: 50dvw;
+    height: 100%;
+    object-fit: cover;
+}
+
 .avatars {
     display: flex;
     flex-direction: row;
@@ -56,4 +62,24 @@
 
 .avatars:hover .avatar {
     margin-left: 0;
+}
+
+@media (max-width: 910px) {
+    .hero-image {
+        display: none;
+    }
+
+    .hero-content {
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .hero-content button {
+        margin-left: auto;
+    }
+
+    .hero-content p {
+        margin-right: 0;
+    }
 }
