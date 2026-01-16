@@ -85,4 +85,10 @@
     .hero-content p {
         margin-right: 0;
     }
+
+    .hero-content {
+        padding: 1.25rem;
+        padding-top: 2rem;
+        gap: 2rem;
+    }
 }
