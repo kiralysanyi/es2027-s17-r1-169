@@ -1,0 +1,44 @@
+#offer-banner {
+    background-color:  var(--primary-color);
+    color: white;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 0.9rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #F6F6F6;
+    padding: 0.9rem;
+}
+
+header nav span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.header-top {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 2.75rem;
+    padding-left: 3.5rem;
+    padding-right: 4rem;
+}
+
+.cta-button {
+    margin-left: auto;
+    align-self: flex-end;
+}
