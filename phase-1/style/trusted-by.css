@@ -1,0 +1,19 @@
+.trusted-by {
+    background-color: #F3F7FF;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.logos {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.logos img {
+    object-fit: contain;
+}

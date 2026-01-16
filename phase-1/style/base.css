@@ -57,3 +57,7 @@ a:visited {
 .highlight {
     color: var(--primary-color);
 }
+
+.underline {
+    text-decoration: underline;
+}
