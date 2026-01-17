@@ -1,0 +1,28 @@
+.limited-deals {
+    display: flex;
+    flex-direction: row;
+    background-color: #F3F7FF;
+    padding: 3rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.limited-deals .card-container {
+    overflow-x: initial;
+}
+
+.deals-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 15rem;
+}
+
+.deals-text p {
+    font-size: 1.1rem;
+}
+
+.deal {
+    text-decoration: line-through;
+    color: gray;
+}
