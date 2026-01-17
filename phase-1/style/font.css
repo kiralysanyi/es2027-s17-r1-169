@@ -1,4 +1,11 @@
 @font-face {
     font-family: Poppins-Regular;
     src: url("../assets/fonts/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url("../assets/fonts/Poppins-Bold.ttf");
+    font-weight: 700;
 }
