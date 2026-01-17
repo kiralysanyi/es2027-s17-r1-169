@@ -34,38 +34,7 @@
     object-fit: cover;
 }
 
-.avatars {
-    display: flex;
-    flex-direction: row;
-    padding-left: 1.2rem;
-    transition: 200ms;
-}
 
-.avatars .avatar {
-    width: 3.2rem;
-    height: 3.2rem;
-    margin-left: -1.7rem;
-    transition: 200ms;
-}
-
-.avatar-25k {
-    border-radius: 50%;
-    text-align: center;
-    line-height: 3.2rem;
-    background-color: #E0E9FE;
-    border: 1px solid var(--primary-color);
-}
-
-/* Only apply hover animation if hero-image is shown */
-@media (min-width: 910px) {
-    .avatars:hover {
-        padding-left: 0;
-    }
-
-    .avatars:hover .avatar {
-        margin-left: 0;
-    }
-}
 
 @media (max-width: 910px) {
     .hero-image {

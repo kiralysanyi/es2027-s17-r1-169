@@ -10,6 +10,11 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card h3 {
+    font-size: 1rem;
 }
 
 .card img {
@@ -17,15 +22,29 @@
 }
 
 .card .author {
-
+    color: gray;
+    margin-top: -0.5rem;
 }
 
-.card .rating {
-
+.card .avatar {
+    margin-left: -1rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .card .subs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    margin-left: auto;
+    color: gray;
+}
 
+.card-bottom {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
 }
 
 .card .price {
