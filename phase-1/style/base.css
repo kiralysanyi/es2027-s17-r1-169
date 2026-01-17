@@ -94,3 +94,13 @@ a:visited {
         margin-left: 0;
     }
 }
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.text-group p {
+    color: gray;
+}
