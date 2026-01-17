@@ -20,6 +20,12 @@ button, .btn {
     padding-right: 1.5rem;
     border-radius: 999px;
     background-color: var(--primary-color);
+    transition: 200ms;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--primary-focus-color);
 }
 
 .input-group {
