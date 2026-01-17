@@ -12,12 +12,15 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    scrollbar-width: none;
 }
 
 .tab-labels label {
     line-height: 2rem;
     position: relative;
     cursor: pointer;
+    height: 2rem;
+    text-wrap: nowrap;
 }
 
 .tab-labels label::after {
@@ -30,6 +33,7 @@
     height: 2px;
     background-color: var(--primary-color);
     transition: 200ms;
+    z-index: 100;
 }
 
 /* Show first tab */
@@ -58,4 +62,18 @@
 
 .tab-container:has(#r-tab2:checked) #r2-label{
     color: var(--primary-color);
+}
+
+
+@media (max-width: 415px) {
+    .tab-labels {
+        overflow-y: clip;
+        overflow-x: auto;
+        height: 3rem;
+    }
+
+    .tab-container .separator {
+        margin-top: -1rem;
+    }
+
 }
