@@ -11,6 +11,8 @@ header {
     flex-direction: column;
 }
 
+/* TODO: add scroll indication fade effect when needed */
+
 header nav {
     display: flex;
     flex-direction: row;

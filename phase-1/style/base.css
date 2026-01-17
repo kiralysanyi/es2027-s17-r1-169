@@ -28,6 +28,8 @@ button:hover, .btn:hover {
     background-color: var(--primary-focus-color);
 }
 
+/* TODO: add primary color to border when focused */
+
 .input-group {
     display: flex;
     flex-direction: row;
