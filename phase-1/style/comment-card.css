@@ -55,3 +55,24 @@
 .comment-card-container:hover .card-group {
     animation-play-state: paused;
 }
+
+@media (max-width: 500px) {
+    #cgroup-2 {
+        display: none;
+    }
+
+    .card-group {
+        animation: none;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 100%;
+    }
+
+    .comment-card {
+        display: none;
+    }
+
+    .card-group .comment-card:nth-child(-n+2) {
+        display: flex !important;
+    }
+}
