@@ -11,7 +11,8 @@ input {
 }
 
 
-button, .btn {
+button,
+.btn {
     border: none;
     color: white;
     font-size: 1rem;
@@ -24,7 +25,14 @@ button, .btn {
     cursor: pointer;
 }
 
-button:hover, .btn:hover {
+.btn-secondary {
+    background-color: white !important;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color) !important;
+}
+
+button:hover,
+.btn:hover {
     background-color: var(--primary-focus-color);
 }
 
