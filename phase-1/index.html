@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./style/trusted-by.css">
     <link rel="stylesheet" href="./style/trending-courses.css">
     <link rel="stylesheet" href="./style/card.css">
+    <link rel="stylesheet" href="./style/tab.css">
 </head>
 
 <body>
@@ -85,148 +86,159 @@
                 <p>Handpicked courses across various categories to help you achieve your learning goals</p>
             </div>
 
-            Technology & Software | Design & UX/UI:
+            <div class="tab-container">
 
-            <!-- Card container for tech/sw -->
-            <div class="card-container" id="container1">
-                <div class="card">
-                    <img src="./assets/img/course-1.png" alt="cover photo">
-                    <h3>The Advanced Web Developer Bootcamp</h3>
-                    <span class="author">Sarah Lee</span>
-                    <span class="price">$19.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
-                        <div class="subs">
-                            <span>2,500+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
-                                <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/img/course-2.png" alt="cover photo">
-                    <h3>The Complete 2026 PHP Full Stack Web Developer Bootcamp</h3>
-                    <span class="author">Sarah Lee</span>
-                    <span class="price">$109.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
-                        <div class="subs">
-                            <span>4,235+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                                <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="tab-labels">
+                    <label for="r-tab1" id="r1-label">Technology & Software</label>
+                    <label for="r-tab2" id="r2-label">Design & UX/UI</label>
                 </div>
 
-                <div class="card">
-                    <img src="./assets/img/course-3.png" alt="cover photo">
-                    <h3>Internet and Web Development Fundamentals</h3>
-                    <span class="author">Sarah Lee</span>
-                    <span class="price">$79.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
-                        <div class="subs">
-                            <span>20,459+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                                <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/img/course-4.png" alt="cover photo">
-                    <h3>CSS, Bootstrap ,JavaScript, Web Development Course</h3>
-                    <span class="author">Sarah Lee</span>
-                    <span class="price">$49.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
-                        <div class="subs">
-                            <span>2,500+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
-                                <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card container for design/ux/ui -->
-            <div class="card-container" id="container2">
-                <div class="card">
-                    <img src="./assets/img/course-1.png" alt="cover photo">
-                    <h3>Complete Web & Mobile Designer in 2026: UI/UX, Figma, +more</h3>
-                    <span class="author">Alex Chen</span>
-                    <span class="price">$89.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.8</span>
-                        <div class="subs">
-                            <span>3,200+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                                <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                <div class="separator"></div>
+
+                <!-- Card container for tech/sw -->
+                <input class="hidden" type="radio" name="tabs" id="r-tab1" checked>
+                <div class="card-container tab" id="tab1">
+                    <div class="card">
+                        <img src="./assets/img/course-1.png" alt="cover photo">
+                        <h3>The Advanced Web Developer Bootcamp</h3>
+                        <span class="author">Sarah Lee</span>
+                        <span class="price">$19.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
+                            <div class="subs">
+                                <span>2,500+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                                    <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/img/course-2.png" alt="cover photo">
+                        <h3>The Complete 2026 PHP Full Stack Web Developer Bootcamp</h3>
+                        <span class="author">Sarah Lee</span>
+                        <span class="price">$109.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
+                            <div class="subs">
+                                <span>4,235+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                    <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <img src="./assets/img/course-3.png" alt="cover photo">
+                        <h3>Internet and Web Development Fundamentals</h3>
+                        <span class="author">Sarah Lee</span>
+                        <span class="price">$79.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
+                            <div class="subs">
+                                <span>20,459+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                    <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/img/course-4.png" alt="cover photo">
+                        <h3>CSS, Bootstrap ,JavaScript, Web Development Course</h3>
+                        <span class="author">Sarah Lee</span>
+                        <span class="price">$49.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
+                            <div class="subs">
+                                <span>2,500+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                    <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="./assets/img/course-2.png" alt="cover photo">
-                    <h3>UX Design Masterclass: User Experience Design Course</h3>
-                    <span class="author">Maria Rodriguez</span>
-                    <span class="price">$74.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
-                        <div class="subs">
-                            <span>5,100+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
-                                <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
-                                <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+
+                <!-- Card container for design/ux/ui -->
+                <input class="hidden" type="radio" name="tabs" id="r-tab2">
+                <div class="card-container tab" id="tab2">
+                    <div class="card">
+                        <img src="./assets/img/course-1.png" alt="cover photo">
+                        <h3>Complete Web & Mobile Designer in 2026: UI/UX, Figma, +more</h3>
+                        <span class="author">Alex Chen</span>
+                        <span class="price">$89.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.8</span>
+                            <div class="subs">
+                                <span>3,200+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                    <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/img/course-3.png" alt="cover photo">
-                    <h3>Adobe XD UI/UX Design: From Zero to Advanced</h3>
-                    <span class="author">James Wilson</span>
-                    <span class="price">$59.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.7</span>
-                        <div class="subs">
-                            <span>2,800+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                                <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                    <div class="card">
+                        <img src="./assets/img/course-2.png" alt="cover photo">
+                        <h3>UX Design Masterclass: User Experience Design Course</h3>
+                        <span class="author">Maria Rodriguez</span>
+                        <span class="price">$74.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.9</span>
+                            <div class="subs">
+                                <span>5,100+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-4.png" alt="round-avatar-4">
+                                    <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
+                                    <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/img/course-4.png" alt="cover photo">
-                    <h3>Figma UI/UX Design Essentials: Complete Design System</h3>
-                    <span class="author">Emma Thompson</span>
-                    <span class="price">$64.99</span>
-                    <div class="card-bottom">
-                        <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.8</span>
-                        <div class="subs">
-                            <span>4,500+</span>
-                            <div class="avatars">
-                                <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
-                                <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
-                                <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
+                    <div class="card">
+                        <img src="./assets/img/course-3.png" alt="cover photo">
+                        <h3>Adobe XD UI/UX Design: From Zero to Advanced</h3>
+                        <span class="author">James Wilson</span>
+                        <span class="price">$59.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.7</span>
+                            <div class="subs">
+                                <span>2,800+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                    <img class="avatar" src="./assets/img/round-avatar-1.png" alt="round-avatar-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/img/course-4.png" alt="cover photo">
+                        <h3>Figma UI/UX Design Essentials: Complete Design System</h3>
+                        <span class="author">Emma Thompson</span>
+                        <span class="price">$64.99</span>
+                        <div class="card-bottom">
+                            <span class="rating"><img src="assets/img/star-filled.svg" alt="star"> 4.8</span>
+                            <div class="subs">
+                                <span>4,500+</span>
+                                <div class="avatars">
+                                    <img class="avatar" src="./assets/img/round-avatar-5.png" alt="round-avatar-5">
+                                    <img class="avatar" src="./assets/img/round-avatar-3.png" alt="round-avatar-3">
+                                    <img class="avatar" src="./assets/img/round-avatar-2.png" alt="round-avatar-2">
+                                </div>
                             </div>
                         </div>
                     </div>

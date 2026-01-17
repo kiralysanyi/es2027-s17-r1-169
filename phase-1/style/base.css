@@ -104,3 +104,13 @@ a:visited {
 .text-group p {
     color: gray;
 }
+
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: #dbdbdb;
+}
+
+.hidden {
+    display: none;
+}

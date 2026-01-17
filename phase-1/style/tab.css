@@ -1,0 +1,52 @@
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tab {
+    display: none;
+}
+
+.tab-labels {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.tab-labels label {
+    line-height: 2rem;
+    position: relative;
+}
+
+/* Show first tab */
+#r-tab1:checked+#tab1 {
+    display: flex;
+}
+
+/* Show second tab */
+#r-tab2:checked+#tab2 {
+    display: flex;
+}
+
+/* Indicate first tab */
+.tab-container:has(#r-tab1:checked) #r1-label::after {
+    position: absolute;
+    bottom: -1rem;
+    left: 0px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Indicate second tab */
+.tab-container:has(#r-tab2:checked) #r2-label::after {
+    position: absolute;
+    bottom: -1rem;
+    left: 0px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
