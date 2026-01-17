@@ -61,8 +61,10 @@
     transition: 200ms;
 }
 
-.card-animated:hover .cover {
-    transform: scale(1.05, 1.05);
+@media (min-width:720px) {
+    .card-animated:hover .cover {
+        transform: scale(1.05, 1.05);
+    }
 }
 
 @media (max-width: 710px) {
