@@ -11,7 +11,7 @@ input {
 }
 
 
-button {
+button, .btn {
     border: none;
     color: white;
     font-size: 1rem;
