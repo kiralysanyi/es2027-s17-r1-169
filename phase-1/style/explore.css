@@ -1,0 +1,7 @@
+.explore {
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F7FF;
+    padding: 6rem;
+    gap: 2rem;
+}

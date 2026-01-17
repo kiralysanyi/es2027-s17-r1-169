@@ -1,0 +1,30 @@
+.small-card {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 1rem;
+    padding: 1rem;
+    flex: 0 0 30%;
+    gap: 1rem;
+    align-items: center;
+    align-content: center;
+}
+
+.small-card .icon {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    background-color: #E1E9FE;
+    border-radius: 50%;
+}
+
+.small-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
