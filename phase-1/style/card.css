@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-width: 316px;
 }
 
 .card h3 {
@@ -19,6 +20,7 @@
 
 .card img {
     border-radius: 1rem;
+    max-width: 300px;
 }
 
 .card .author {
