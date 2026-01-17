@@ -9,6 +9,14 @@
     gap: 1rem;
     align-items: center;
     align-content: center;
+    transition: 200ms;
+    user-select: none;
+    cursor: pointer;
+}
+
+.small-card:hover {
+    border: 1px solid var(--primary-color);
+    transform: scale(1.05, 1.05);
 }
 
 .small-card .icon {
