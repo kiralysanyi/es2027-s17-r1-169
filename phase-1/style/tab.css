@@ -47,7 +47,15 @@
     width: 100%;
 }
 
+.tab-container:has(#r-tab1:checked) #r1-label{
+    color: var(--primary-color);
+}
+
 /* Indicate second tab */
 .tab-container:has(#r-tab2:checked) #r2-label::after {
     width: 100%;
+}
+
+.tab-container:has(#r-tab2:checked) #r2-label{
+    color: var(--primary-color);
 }
