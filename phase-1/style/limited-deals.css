@@ -8,7 +8,8 @@
 }
 
 .limited-deals .card-container {
-    overflow-x: initial;
+    overflow-x: initial !important;
+    flex-direction: row !important;
 }
 
 .deals-text {
@@ -25,4 +26,40 @@
 .deal {
     text-decoration: line-through;
     color: gray;
+}
+
+.limited-deals .card-container .cover {
+    display: block !important;
+}
+
+.limited-deals .card {
+    max-width: 400px !important;
+}
+
+@media (max-width: 1400px) {
+    .deals-text {
+        padding-right: 3rem;
+    }
+}
+
+/* The only standard breakpoint in this code btw */
+
+@media (max-width: 1024px) {
+    .limited-deals {
+        flex-direction: column;
+    }
+
+    .limited-deals .card-container {
+        width: 100%;
+    }
+
+    .deals-text {
+        padding-right: 0rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .limited-deals .card-container {
+        overflow-x: auto !important;
+    }
 }

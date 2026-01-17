@@ -122,3 +122,11 @@ a:visited {
 .hidden {
     display: none;
 }
+
+/* Decrease padding on sections under specific vw width */
+
+@media (max-width: 500px) {
+    section {
+        padding: 1rem !important;
+    }
+}
