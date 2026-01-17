@@ -30,7 +30,7 @@
 
     .logos img {
         object-fit: contain;
-        max-width: auto;
+        max-width: unset;
         min-width: max-content;
     }
 }
