@@ -48,8 +48,6 @@ button:hover,
     background-color: var(--primary-focus-color);
 }
 
-/* TODO: add primary color to border when focused */
-
 .input-group {
     display: flex;
     flex-direction: row;
@@ -59,6 +57,10 @@ button:hover,
     border: 1px solid #dbdbdb;
     border-radius: 999px;
     padding: 0.5rem;
+}
+
+.input-group:has(input:focus-visible) {
+    border: 1px solid var(--primary-color);
 }
 
 .input-group input {
