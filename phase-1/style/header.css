@@ -11,7 +11,9 @@ header {
     flex-direction: column;
 }
 
-/* TODO: add scroll indication fade effect when needed */
+.nav-wrapper {
+    position: relative;
+}
 
 header nav {
     display: flex;
@@ -23,6 +25,9 @@ header nav {
     background-color: #F6F6F6;
     padding: 0.9rem;
     scrollbar-width: none;
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
 
 header nav span {
@@ -53,6 +58,23 @@ header nav span {
 
     header nav {
         overflow-x: auto;
+    }
+
+    .nav-wrapper::after {
+        content: "";
+        position: absolute;
+        z-index: 10;
+        top: 0px;
+        right: 0px;
+        pointer-events: none;
+        width: 6rem;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            transparent,
+            transparent 50%,
+            white 100%
+        );
     }
 
     header nav span {
