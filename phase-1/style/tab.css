@@ -17,6 +17,19 @@
 .tab-labels label {
     line-height: 2rem;
     position: relative;
+    cursor: pointer;
+}
+
+.tab-labels label::after {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: 200ms;
 }
 
 /* Show first tab */
@@ -31,22 +44,10 @@
 
 /* Indicate first tab */
 .tab-container:has(#r-tab1:checked) #r1-label::after {
-    position: absolute;
-    bottom: -1rem;
-    left: 0px;
-    content: "";
     width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
 }
 
 /* Indicate second tab */
 .tab-container:has(#r-tab2:checked) #r2-label::after {
-    position: absolute;
-    bottom: -1rem;
-    left: 0px;
-    content: "";
     width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
 }
