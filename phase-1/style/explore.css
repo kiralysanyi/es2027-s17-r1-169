@@ -5,3 +5,10 @@
     padding: 6rem;
     gap: 2rem;
 }
+
+@media (max-width: 1024px) {
+    .explore {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}

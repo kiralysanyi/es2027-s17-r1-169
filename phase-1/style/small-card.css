@@ -36,3 +36,22 @@
     justify-items: center;
     justify-content: center;
 }
+
+@media (max-width: 900px) {
+    .small-card-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .small-card {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .small-card-container {
+        gap: 0.5rem;
+    }
+}
