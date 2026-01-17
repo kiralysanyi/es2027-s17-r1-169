@@ -20,6 +20,41 @@
     padding-top: 2rem;
 }
 
-.benefits-cta img {
+.benefits-cta-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits-cover {
     border-radius: 1rem;
+    width: calc(50dvw - 6rem);
+}
+
+@media (max-width: 720px) {
+    .benefits {
+        flex-direction: column-reverse;
+    }
+
+    .benefits-list {
+        padding: 0rem;
+        padding-top: 1rem;
+    }
+
+    .benefits-cta {
+        padding: 0rem;
+        padding-bottom: 1rem;
+    }
+
+    .benefits-cover {
+        display: none;
+    }
+
+    .benefits-cta .separator {
+        display: none;
+    }
+
+    .benefits-cta-button {
+        margin-left: 0;
+        margin-right: auto;
+    }
 }
