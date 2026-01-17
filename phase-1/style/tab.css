@@ -21,6 +21,7 @@
     cursor: pointer;
     height: 2rem;
     text-wrap: nowrap;
+    font-weight: bold;
 }
 
 .tab-labels label::after {
