@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-width: 300px;
     background-color: white;
     cursor: pointer;
 }
@@ -23,19 +22,18 @@
 }
 
 .card img {
-    border-radius: 1rem;
-    max-width: 290px;
+    border-radius: 0.5rem;
 }
 
 .card .author {
     color: gray;
-    margin-top: -0.5rem;
+    font-size: 0.9rem;
 }
 
 .card .avatar {
-    margin-left: -1rem;
-    width: 2rem;
-    height: 2rem;
+    margin-left: -1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .card .subs {
@@ -45,6 +43,7 @@
     align-self: flex-end;
     margin-left: auto;
     color: gray;
+    gap: 1rem;
 }
 
 .card-bottom {
@@ -55,6 +54,7 @@
 
 .card .price {
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .card-animated .cover {
