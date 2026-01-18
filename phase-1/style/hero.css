@@ -9,7 +9,7 @@
     justify-content: center;
     align-content: start;
     padding: 3.5rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
     gap: 2rem;
 }
 
@@ -24,12 +24,17 @@
 
 }
 
+.hero-content .avatars {
+    margin-top: -1rem;
+}
+
 .hero button {
     margin-right: auto;
+    margin-top: 2rem;
 }
 
 .hero-image img {
-    width: 50dvw;
+    width: calc(50dvw - 1rem);
     height: 100%;
     object-fit: cover;
 }
