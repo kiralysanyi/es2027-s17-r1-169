@@ -68,6 +68,10 @@
 }
 
 @media (max-width: 500px) {
+    .hero {
+        padding-bottom: 2rem !important;
+    }
+
     .hero h1 {
         font-size: 2rem;
         line-height: 2.5rem;

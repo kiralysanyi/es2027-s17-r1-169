@@ -37,3 +37,20 @@
         min-width: max-content;
     }
 }
+
+@media (max-width:500px) {
+    .trusted-by h2 {
+        font-size: 1rem;
+    }
+
+    .logos {
+        gap: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .trusted-by {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
