@@ -74,5 +74,6 @@
 
     .card-group .comment-card:nth-child(-n+2) {
         display: flex !important;
+        max-width: 100%;
     }
 }
