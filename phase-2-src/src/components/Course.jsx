@@ -17,6 +17,9 @@ const Course = ({ course }) => {
         <span>
             {course.courseName}
         </span>
+        {course.courseName != course.courseNameEnglish ? <span>
+            {course.courseNameEnglish}
+        </span> : ""}
         <span>
             {course.difficulty} - {course.price}
         </span>
