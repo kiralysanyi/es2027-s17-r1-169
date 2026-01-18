@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+input[type="text"] {
+    @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
+}
+
+.input-group {
+    @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
+    @apply flex flex-row align-middle;
+}
+
+select:hover {
+    @apply cursor-pointer;
+}
+
+.control-button {
+    @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
+}
+
+.control-button:hover {
+    @apply cursor-pointer;
+}
