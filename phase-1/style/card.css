@@ -21,7 +21,8 @@
     font-size: 1rem;
 }
 
-.card img {
+.card .cover {
+    object-fit: contain;
     border-radius: 0.5rem;
 }
 

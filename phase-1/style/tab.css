@@ -78,8 +78,8 @@
         height: 3rem;
     }
 
-    .tab-container .separator {
-        margin-top: -1rem;
+    .tab-container {
+        gap: 0px;
     }
 
 }

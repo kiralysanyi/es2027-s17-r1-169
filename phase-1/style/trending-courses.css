@@ -6,3 +6,14 @@
     gap: 3rem;
     padding-bottom: 5rem;
 }
+
+@media (max-width: 500px) {
+    .trending-courses h2 {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+
+    .trending-courses {
+        gap: 2rem;
+    }
+}
