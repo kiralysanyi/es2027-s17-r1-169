@@ -24,10 +24,6 @@
 
 }
 
-.hero-content .avatars {
-    margin-top: -1rem;
-}
-
 .hero button {
     margin-right: auto;
     margin-top: 2rem;
@@ -37,6 +33,15 @@
     width: calc(50dvw - 1rem);
     height: 100%;
     object-fit: cover;
+}
+
+.avatars-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+    user-select: none;
 }
 
 
@@ -90,5 +95,9 @@
 
     .hero-content button {
         margin-top: 0;
+    }
+
+    .avatars-container {
+        gap: 0.5rem;
     }
 }

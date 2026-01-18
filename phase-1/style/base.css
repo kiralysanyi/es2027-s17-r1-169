@@ -116,6 +116,7 @@ a:visited {
     line-height: 3.2rem;
     background-color: #E0E9FE;
     border: 1px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 /* Only apply hover animation if hero-image is shown */
