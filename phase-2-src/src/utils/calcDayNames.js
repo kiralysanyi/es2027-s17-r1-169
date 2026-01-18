@@ -18,7 +18,6 @@ const calcDayNames = (firstDay, dayCount) => {
         }
     }
 
-    console.log(namedDays)
     return namedDays
 }
 

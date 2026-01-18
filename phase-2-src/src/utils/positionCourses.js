@@ -22,7 +22,6 @@ const positionCourses = (courses) => {
             courseDays.push(startDate.getDate() + index)
         }
 
-        console.log("Days/columns to reserve: ", courseDays)
 
         for (let i in courseDays) {
             // init column if not existing
@@ -43,8 +42,6 @@ const positionCourses = (courses) => {
         courses[i]["row"] = targetRow;
     }
 
-    console.log("Columns", columns)
-    console.log("Positioned: ", courses)
     return courses;
 }
 

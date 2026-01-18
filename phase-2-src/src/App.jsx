@@ -8,6 +8,7 @@ const App = () => {
     const [courses, setCourses] = useState(null)
     const [currencies, setCurrencies] = useState(null)
     const [scale, setScale] = useState(1)
+    const [filteredCourses, setFilteredCourses] = useState(null)
 
     useEffect(() => {
         fetch("/phase-2/courses.json", {
@@ -18,6 +19,7 @@ const App = () => {
             const data = await response.json();
             console.log("Got data: ", data)
             setCourses(data)
+            setFilteredCourses(data)
         })
 
         fetch("/phase-2/currencies.json", {
@@ -31,11 +33,37 @@ const App = () => {
         })
     }, [])
 
+    const onSearch = (query) => {
+        console.log(query)
+
+
+        let filtered = courses.map((course) => {
+            if (query.length == 0) {
+                console.log("q empty")
+                course.hidden = false;
+                return course
+            }
+
+            if (course.courseName.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.courseNameEnglish.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.instructor.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.difficulty.toLowerCase().includes(query.toLowerCase()) == false
+            ) {
+                course.hidden = true;
+            } else {
+                course.hidden = false;
+            }
+
+            return course
+        })
+        setFilteredCourses(filtered)
+    }
+
     return <div className="flex flex-col h-full">
         <Header />
-        <Controls onScaleChange={setScale} />
+        <Controls onSearch={onSearch} onScaleChange={setScale} />
         {
-            courses && currencies ? <Calendar scale={scale} startDay={7} endDay={31} courses={courses} /> : ""
+            filteredCourses && currencies ? <Calendar scale={scale} startDay={7} endDay={31} courses={filteredCourses} /> : ""
         }
     </div>
 }

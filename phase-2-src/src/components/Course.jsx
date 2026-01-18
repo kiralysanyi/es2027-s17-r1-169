@@ -10,7 +10,7 @@ const Course = ({ course }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
 
-    return <div style={{ gridRow: course.row + 1, gridColumnStart: startDate.getDate(), gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31 }} className={`bg-white border-2 border-gray-100 flex flex-col`}>
+    return <div style={{ transition: "200ms", gridRow: course.row + 1, gridColumnStart: startDate.getDate(), gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31, opacity: course.hidden == true ? 0 : 1 }} className={`bg-white border-2 border-gray-100 flex flex-col`}>
         <span>
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>

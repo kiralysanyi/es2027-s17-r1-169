@@ -4,9 +4,10 @@ import { useState } from "react";
  * 
  * @param {Object} props
  * @param {Function} props.onScaleChange
+ * @param {Function} props.onSearch
  * @returns 
  */
-const Controls = ({ onScaleChange }) => {
+const Controls = ({ onScaleChange, onSearch }) => {
     const [scale, setScale] = useState(1)
 
     const scaleUp = () => {
@@ -25,9 +26,11 @@ const Controls = ({ onScaleChange }) => {
         }
     }
 
+    const [searchValue, setSearchValue] = useState("")
+
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" placeholder="🔍 Search..." />
+        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => {onSearch(ev.target.value); setSearchValue(ev.target.value)}} />
 
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>

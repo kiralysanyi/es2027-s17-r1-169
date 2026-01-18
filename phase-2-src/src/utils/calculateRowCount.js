@@ -45,7 +45,6 @@ const calculateRowCount = (courses) => {
         }
     }
 
-    console.log(days)
 
     return rowCount;
 }
