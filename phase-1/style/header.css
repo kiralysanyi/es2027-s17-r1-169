@@ -69,12 +69,10 @@ header nav span {
         pointer-events: none;
         width: 6rem;
         height: 100%;
-        background: linear-gradient(
-            to right,
-            transparent,
-            transparent 50%,
-            white 100%
-        );
+        background: linear-gradient(to right,
+                transparent,
+                transparent 50%,
+                white 100%);
     }
 
     header nav span {
@@ -93,5 +91,13 @@ header nav span {
 
     .header-top .cta-button {
         padding: 0.5rem;
+    }
+
+    #offer-banner {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        line-height: 2rem;
+        font-size: 0.85rem;
     }
 }
