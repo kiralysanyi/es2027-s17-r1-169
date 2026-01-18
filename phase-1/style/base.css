@@ -10,6 +10,9 @@ input {
     font-family: Poppins-Regular;
 }
 
+h2 {
+    font-size: 2rem;
+}
 
 button,
 .btn {

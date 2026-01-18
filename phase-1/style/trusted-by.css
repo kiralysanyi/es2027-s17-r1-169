@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.trusted-by h2 {
+    font-size: 1.25rem;
+}
+
 .logos {
     display: flex;
     flex-direction: row;
