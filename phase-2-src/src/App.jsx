@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Calendar from "./components/Calendar"
 import Controls from "./components/Controls"
 import Header from "./components/Header"
+import { days } from "./definitions/days"
 
 const App = () => {
     const [courses, setCourses] = useState(null)
@@ -33,7 +34,7 @@ const App = () => {
         <Header />
         <Controls />
         {
-            courses && currencies ? <Calendar startDay="sunday" endDay={31} courses={courses} /> : ""
+            courses && currencies ? <Calendar startDay={7} endDay={31} courses={courses} /> : ""
         }
     </div>
 }

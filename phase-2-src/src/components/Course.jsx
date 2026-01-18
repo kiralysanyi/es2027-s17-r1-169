@@ -8,7 +8,7 @@ const Course = ({course}) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
 
-    return <div style={{ gridRow: course.row, gridColumnStart: startDate.getDate(), gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31}} className={`bg-pink-500`}>
+    return <div style={{ gridRow: course.row + 1, gridColumnStart: startDate.getDate(), gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31}} className={`bg-pink-500`}>
         <h1>Kecske</h1>
     </div>
 }
