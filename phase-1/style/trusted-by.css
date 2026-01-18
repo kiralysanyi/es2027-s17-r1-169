@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 2.5rem;
+    padding: 3rem;
     text-align: center;
 }
 
@@ -16,7 +16,7 @@
 .logos {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 3.75rem;
     justify-content: safe center;
     width: 100%;
     scrollbar-width: none;
@@ -24,7 +24,6 @@
 
 .logos img {
     object-fit: contain;
-    max-width: 10%;
 }
 
 @media (max-width: 910px) {
