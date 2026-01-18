@@ -3,6 +3,7 @@
     flex-direction: row;
     background-color: #F3F7FF;
     padding: 3rem;
+    padding-left: 2.5rem;
     gap: 2rem;
     align-items: center;
 }
@@ -15,12 +16,17 @@
 .deals-text {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding-right: 15rem;
+    gap: 3rem;
+    padding-right: 13rem;
+}
+
+.deals-text h2 {
+    line-height: 2.5rem;
 }
 
 .deals-text p {
     font-size: 1.1rem;
+    line-height: 1.1rem;
 }
 
 .deal {
