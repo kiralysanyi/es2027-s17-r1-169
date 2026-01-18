@@ -30,8 +30,9 @@ const Controls = ({ onScaleChange, onSearch }) => {
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => {onSearch(ev.target.value); setSearchValue(ev.target.value)}} />
+        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => { onSearch(ev.target.value); setSearchValue(ev.target.value) }} />
 
+        {/* TODO: actually fill this up with data and add functionality */}
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
             <select name="currency" id="currency"></select>

@@ -33,6 +33,7 @@ const App = () => {
         })
     }, [])
 
+    // TODO: Add debounce
     const onSearch = (query) => {
         console.log(query)
 
