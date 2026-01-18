@@ -8,7 +8,6 @@ const calculateRowCount = (courses) => {
     for (let i in courses) {
         let startDate = new Date(courses[i]["startDate"])
         let endDate = new Date(courses[i]["endDate"])
-        console.log("Checking: ", startDate, endDate)
         //if course ends on same day we only bump row count once
 
         if (startDate.getDate() == endDate.getDate() && startDate.getMonth() == endDate.getMonth()) {
@@ -52,3 +51,5 @@ const calculateRowCount = (courses) => {
 }
 
 export default calculateRowCount;
+
+// relax, take it easy

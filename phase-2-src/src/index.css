@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root, body, #root {
+    @apply h-full;
+}
+
 input[type="text"] {
     @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
 }
