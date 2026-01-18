@@ -7,6 +7,7 @@ import { days } from "./definitions/days"
 const App = () => {
     const [courses, setCourses] = useState(null)
     const [currencies, setCurrencies] = useState(null)
+    const [scale, setScale] = useState(1)
 
     useEffect(() => {
         fetch("/phase-2/courses.json", {
@@ -32,9 +33,9 @@ const App = () => {
 
     return <div className="flex flex-col h-full">
         <Header />
-        <Controls />
+        <Controls onScaleChange={setScale} />
         {
-            courses && currencies ? <Calendar startDay={7} endDay={31} courses={courses} /> : ""
+            courses && currencies ? <Calendar scale={scale} startDay={7} endDay={31} courses={courses} /> : ""
         }
     </div>
 }
