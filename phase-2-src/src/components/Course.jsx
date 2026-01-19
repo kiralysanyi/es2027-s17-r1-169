@@ -3,6 +3,7 @@ import formatKlok from "../utils/formatKlok";
 import { DataContext } from "../providers/DataProvider";
 import { getFlagForLang } from "../utils/langUtils";
 import getCategoryColor from "../utils/getCategoryColor";
+import getDifficultyEmoji from "../utils/getDifficultyEmoji";
 
 /**
  * Course card to use in calendar
@@ -39,7 +40,7 @@ const Course = ({ course }) => {
         <div className="w-full bg-gray-400" style={{ height: "1px" }}></div>
         {
             selectedCurrency ? <span>
-                {course.difficulty} - {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}
+                {getDifficultyEmoji(course.difficulty)} {course.difficulty} - {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}
             </span> : ""
         }
 
