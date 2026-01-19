@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import formatKlok from "../utils/formatKlok";
 import { DataContext } from "../providers/DataProvider";
+import { getFlagForLang } from "../utils/langUtils";
 
 /**
  * Course card to use in calendar
@@ -27,7 +28,7 @@ const Course = ({ course }) => {
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
         <span>
-            {course.courseName}
+            {getFlagForLang(course.language)} {course.courseName}
         </span>
         {course.courseName != course.courseNameEnglish ? <span>
             {course.courseNameEnglish}
