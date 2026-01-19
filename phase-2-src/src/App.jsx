@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import Calendar from "./components/Calendar"
 import Controls from "./components/Controls"
 import Header from "./components/Header"
