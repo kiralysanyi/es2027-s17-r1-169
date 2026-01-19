@@ -10,8 +10,15 @@ const Course = ({ course }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
 
-    return <div style={{ transition: "200ms", gridRow: course.row + 1, gridColumnStart: startDate.getDate(), gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31, opacity: course.hidden == true ? 0 : 1 }} className={`bg-white border-2 border-gray-100 flex flex-col`}>
-        <span>
+    return <div style={{
+        transition: "200ms", 
+        gridRow: course.row + 1, 
+        gridColumnStart: startDate.getDate(), 
+        gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31, 
+        opacity: course.hidden == true ? 0 : 1 }}
+
+    className="course-card">
+        <span className="bg-purple-200 mr-auto p-1 rounded-full text-purple-700 truncate max-w-full">
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
         <span>
@@ -20,6 +27,7 @@ const Course = ({ course }) => {
         {course.courseName != course.courseNameEnglish ? <span>
             {course.courseNameEnglish}
         </span> : ""}
+        <div className="w-full bg-gray-400" style={{height: "1px"}}></div>
         <span>
             {course.difficulty} - {course.price}
         </span>

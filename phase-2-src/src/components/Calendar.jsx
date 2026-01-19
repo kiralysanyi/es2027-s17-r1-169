@@ -20,23 +20,23 @@ import Course from "./Course";
 const Calendar = ({ startDay, endDay, courses, currencies, scale }) => {
     const positionedCourses = positionCourses(courses)
     const dayMap = calcDayNames(startDay, endDay)
-    return <div className="w-full overflow-x-auto flex-1">
+    return <div className="w-full overflow-x-auto flex-1 h-full relative">
         <div style={{
             transition: "200ms",
-            gridTemplateColumns: `repeat(${endDay}, 1fr)`,
-            columnGap: "1rem",
-            rowGap: "1rem", width: (500 * scale) + "%",
-            gridTemplateRows: `repeat(${calculateRowCount(courses) + 1}, 1fr)`
-        }} className="grid h-full pl-2">
+            gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
+            columnGap: "0.5rem",
+            rowGap: "0.5rem", width: (500 * scale) + "%",
+            gridTemplateRows: `0.5fr repeat(${calculateRowCount(courses) + 1}, 1fr)`
+        }} className="course-grid">
             {/* Render header */}
             {dayMap.map((day, index) => <div className={
                 `flex flex-col align-middle justify-center border-b-2 border-gray-300 
-                gridline ${(day == "SAT") || (day == "SUN") ? "gridline-weekend" : ""}
-                ${index == 14 ? "holiday-indicator" : "" }
-                `} style={{ gridColumn: 0, gridRow: 0 }}>
+                gridline grid-head ${(day == "SAT") || (day == "SUN") ? "gridline-weekend" : ""}
+                ${index == 14 ? "holiday-indicator" : ""}
+                `} style={{ gridColumn: index + 1, gridRow: 0 }}>
                 <span className="mx-auto">{index + 1}</span>
                 <span className={`mx-auto ${(day == "SAT") || (day == "SUN") ? "text-red-600" : ""}`}>{day}</span>
-                {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl">
+                {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl" style={{marginBottom: "-1rem"}}>
                     Hungarian Revolution
                 </span> : ""}
             </div>)}
