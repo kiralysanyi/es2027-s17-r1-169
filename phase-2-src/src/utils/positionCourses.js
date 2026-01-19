@@ -12,7 +12,6 @@ const positionCourses = (courses) => {
         let startDate = new Date(courses[i].startDate)
         let endDate = new Date(courses[i].endDate)
 
-        let firstDay = startDate.getDate();
         let endDay = endDate.getMonth() == 2 ? endDate.getDate() : 31
 
         // calculate course days
