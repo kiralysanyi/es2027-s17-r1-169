@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * 
@@ -11,7 +11,7 @@ import { useState } from "react";
  */
 const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => {
     const [scale, setScale] = useState(1);
-    const [currency, setCurrency] = useState({name: "EUR", value: 1})
+    const [currency, setCurrency] = useState({ name: "EUR", value: 1 })
 
     const scaleUp = () => {
         if (scale < 5) {
@@ -30,9 +30,26 @@ const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => 
     }
 
     const changeCurrency = (ev) => {
-        setCurrency(JSON.parse(ev.target.value));
+        localStorage.setItem("currency", JSON.parse(ev.target.value).name)
+        setCurrency(ev.target.value);
         onCurrencyChange(JSON.parse(ev.target.value))
     }
+
+    // load selected currency if existing in localstorage
+    useEffect(() => {
+        const saved = localStorage.getItem("currency")
+        console.log(saved, currencies[saved])
+        if (saved != null) {
+            setCurrency(JSON.stringify({
+                name: saved,
+                value: currencies[saved]
+            }))
+            onCurrencyChange({
+                name: saved,
+                value: currencies[saved]
+            })
+        }
+    }, currencies)
 
     const [searchValue, setSearchValue] = useState("")
 
