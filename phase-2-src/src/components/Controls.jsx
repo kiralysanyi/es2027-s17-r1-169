@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { DataContext } from "../providers/DataProvider";
 import useDebounce from "../hooks/useDebounce";
 import exportCsv from "../utils/exportCsv";
@@ -72,9 +72,10 @@ const Controls = () => {
         })
     }, [])
 
+    // handle search
     const [searchInput, setSearchInput] = useState("");
     const debouncedInput = useDebounce(searchInput, 300);
-
+    const searchRef = useRef(null)
     useEffect(() => {
         if (courses) {
             setSearchValue(debouncedInput)
@@ -91,7 +92,7 @@ const Controls = () => {
                     course.instructor.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
                     course.difficulty.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
                     course.language.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
-                    course.price.toString().includes(debouncedInput.toLowerCase()) == false 
+                    course.price.toString().includes(debouncedInput.toLowerCase()) == false
                 ) {
                     course.hidden = true;
                 } else {
@@ -104,10 +105,54 @@ const Controls = () => {
         }
     }, [debouncedInput])
 
+    // handle key combinations (except scroll, that is handled in the Calendar component)
+    useEffect(() => {
+        const evHandler = (ev) => {
+            //only do anything if ctrlKey is down
+            if (ev.ctrlKey) {
+                switch (ev.key) {
+                    case "d":
+                        ev.preventDefault();
+                        searchRef.current.focus()
+                        break;
+
+                    case "+":
+                        ev.preventDefault();
+                        scaleUp();
+                        break;
+
+                    case "-":
+                        ev.preventDefault();
+                        scaleDown();
+                        break;
+
+                    case "e":
+                        ev.preventDefault();
+                        onExport();
+                        break;
+
+                    case "b":
+                        ev.preventDefault();
+                        document.body.requestFullscreen();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+
+        window.addEventListener("keydown", evHandler)
+
+        return () => {
+            window.removeEventListener("keydown", evHandler)
+        }
+    }, [scale, courses])
+
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchInput} placeholder="🔍 Search..." onChange={(ev) => { setSearchInput(ev.target.value) }} />
+        <input type="text" value={searchInput} ref={searchRef} placeholder="🔍 Search..." onChange={(ev) => { setSearchInput(ev.target.value) }} />
 
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
