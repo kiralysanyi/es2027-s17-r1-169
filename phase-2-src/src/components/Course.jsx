@@ -18,7 +18,8 @@ const Course = ({ course }) => {
         gridRow: course.row + 1,
         gridColumnStart: startDate.getDate(),
         gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31,
-        opacity: course.hidden == true ? 0 : 1
+        opacity: course.hidden == true ? 0 : 1,
+        cursor: course.hidden == true ? "default" : "pointer"
     }}
 
         className="course-card">
