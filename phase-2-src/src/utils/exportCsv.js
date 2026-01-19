@@ -17,7 +17,7 @@ const exportCsv = (courseData) => {
 
     console.log(exported)
 
-    let blob = new Blob([exported], { type: "text/csv" })
+    let blob = new Blob(["\ufeff", exported], { type: "text/csv;charset=utf-8;" })
     const blobURL = URL.createObjectURL(blob)
     const link = document.createElement("a");
     link.href = blobURL;
