@@ -108,6 +108,13 @@ const Controls = () => {
     // handle key combinations (except scroll, that is handled in the Calendar component)
     useEffect(() => {
         const evHandler = (ev) => {
+            // handle exit fullscreen
+            if (ev.key == "esc") {
+                ev.preventDefault();
+                document.exitFullscreen();
+                return;
+            }
+
             //only do anything if ctrlKey is down
             if (ev.ctrlKey) {
                 switch (ev.key) {
