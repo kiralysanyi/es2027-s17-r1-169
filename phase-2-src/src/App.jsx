@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import Calendar from "./components/Calendar"
 import Controls from "./components/Controls"
 import Header from "./components/Header"
-import { days } from "./definitions/days"
 
+// TODO: do something about prop drilling, maybe use contexts i guess
 const App = () => {
     const [courses, setCourses] = useState(null)
     const [currencies, setCurrencies] = useState(null)
