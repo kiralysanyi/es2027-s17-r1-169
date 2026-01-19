@@ -37,15 +37,15 @@ const Calendar = ({ startDay, endDay }) => {
     // attach key listener
     useEffect(() => {
         const evHandler = (ev) => {
-            if (ev.ctrlKey) {
-                if (ev.key == "ArrowLeft") {
-                    goLeft()
-                }
 
-                if (ev.key == "ArrowRight") {
-                    goRight()
-                }
+            if (ev.key == "ArrowLeft") {
+                goLeft()
             }
+
+            if (ev.key == "ArrowRight") {
+                goRight()
+            }
+
         }
 
         window.addEventListener("keydown", evHandler)
