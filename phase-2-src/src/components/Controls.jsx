@@ -64,7 +64,9 @@ const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => 
                 {Object.keys(currencies).map(currency => <option value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
             </select>
         </div>
-        <button className="control-button">🔝 Full Screen</button>
+        <button className="control-button" onClick={() => {
+            document.body.requestFullscreen()
+        }}>🔝 Full Screen</button>
         <button className="control-button"> 📁 Export</button>
         <button className="control-button" onClick={scaleDown}>➖</button>
         <button className="control-button" onClick={scaleUp}>➕</button>
