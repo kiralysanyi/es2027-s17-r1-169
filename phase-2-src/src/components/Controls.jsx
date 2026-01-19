@@ -166,8 +166,8 @@ const Controls = () => {
             document.body.requestFullscreen()
         }}>🔝 Full Screen</button>
         <button className="control-button" onClick={onExport}> 📁 Export</button>
-        <button className="control-button" onClick={scaleDown}>➖</button>
-        <button className="control-button" onClick={scaleUp}>➕</button>
+        <button className="control-button" disabled={scale == 0.5} onClick={scaleDown}>➖</button>
+        <button  className="control-button" disabled={scale == 5} onClick={scaleUp}>➕</button>
     </div>
 }
 

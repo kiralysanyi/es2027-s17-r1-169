@@ -7,12 +7,21 @@ body,
 }
 
 input[type="text"] {
+    @apply outline-0;
     @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
+}
+
+input[type="text"]:focus {
+    @apply border-purple-500;
 }
 
 .input-group {
     @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
-    @apply flex flex-row align-middle;
+    @apply flex flex-row align-middle transition;
+}
+
+.input-group:hover {
+    @apply border-2 border-purple-500
 }
 
 select:hover {
@@ -20,11 +29,13 @@ select:hover {
 }
 
 .control-button {
+    @apply transition;
     @apply border-2 border-gray-200 rounded-xl p-1 px-3 bg-white;
 }
 
 .control-button:hover {
     @apply cursor-pointer;
+    @apply border-purple-500;
 }
 
 .course-grid {
