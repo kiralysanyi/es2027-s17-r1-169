@@ -5,10 +5,13 @@ import { useState } from "react";
  * @param {Object} props
  * @param {Function} props.onScaleChange
  * @param {Function} props.onSearch
+ * @param {Function} props.onCurrencyChange
+ * @param {Object} props.currencies
  * @returns 
  */
-const Controls = ({ onScaleChange, onSearch }) => {
-    const [scale, setScale] = useState(1)
+const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => {
+    const [scale, setScale] = useState(1);
+    const [currency, setCurrency] = useState({name: "EUR", value: 1})
 
     const scaleUp = () => {
         if (scale < 5) {
@@ -26,6 +29,11 @@ const Controls = ({ onScaleChange, onSearch }) => {
         }
     }
 
+    const changeCurrency = (ev) => {
+        setCurrency(JSON.parse(ev.target.value));
+        onCurrencyChange(JSON.parse(ev.target.value))
+    }
+
     const [searchValue, setSearchValue] = useState("")
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
@@ -35,7 +43,9 @@ const Controls = ({ onScaleChange, onSearch }) => {
         {/* TODO: actually fill this up with data and add functionality */}
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
-            <select name="currency" id="currency"></select>
+            <select name="currency" value={currency} id="currency" onChange={changeCurrency}>
+                {Object.keys(currencies).map(currency => <option value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
+            </select>
         </div>
         <button className="control-button">🔝 Full Screen</button>
         <button className="control-button"> 📁 Export</button>

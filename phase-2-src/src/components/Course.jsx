@@ -4,9 +4,10 @@ import formatKlok from "../utils/formatKlok";
  * Course card to use in calendar
  * @param {Object} props - Component props
  * @param {Object} props.course - Course object
+ * @param {Object} props.currency - Currency object
  * @returns {React.JSX.Element} Component
  */
-const Course = ({ course }) => {
+const Course = ({ course, currency }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
 
@@ -29,7 +30,7 @@ const Course = ({ course }) => {
         </span> : ""}
         <div className="w-full bg-gray-400" style={{height: "1px"}}></div>
         <span>
-            {course.difficulty} - {course.price}
+            {course.difficulty} - {Math.floor(course.price / currency.value)} {currency.name}
         </span>
 
         <span>

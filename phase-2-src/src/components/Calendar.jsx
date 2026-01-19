@@ -11,13 +11,13 @@ import Course from "./Course";
  * @param {int} props.startDay - Starting weekday
  * @param {number} props.endDay - Total number of days but i call it endDay because it sounded better
  * @param {Array} props.courses - Courses object
- * @param {Object} props.currencies - Currencies object
+ * @param {Object} props.currency - Currency object
  * @param {number} props.scale - Scale of diagram
  * * @returns {React.JSX.Element} Component
  * * @example
  * <Calendar startDay="sunday" endDay={31} />
  */
-const Calendar = ({ startDay, endDay, courses, currencies, scale }) => {
+const Calendar = ({ startDay, endDay, courses, currency, scale }) => {
     const positionedCourses = positionCourses(courses)
     const dayMap = calcDayNames(startDay, endDay)
     return <div className="w-full overflow-x-auto flex-1 h-full relative">
@@ -43,7 +43,7 @@ const Calendar = ({ startDay, endDay, courses, currencies, scale }) => {
 
             {/* Render courses */}
             {
-                positionedCourses.map(course => <Course course={course} />)
+                positionedCourses.map(course => <Course currency={currency} course={course} />)
             }
         </div>
     </div>

@@ -9,6 +9,7 @@ const App = () => {
     const [currencies, setCurrencies] = useState(null)
     const [scale, setScale] = useState(1)
     const [filteredCourses, setFilteredCourses] = useState(null)
+    const [selectedCurrency, setSelectedCurrency] = useState({name: "EUR", value: 1})
 
     useEffect(() => {
         fetch("/phase-2/courses.json", {
@@ -62,9 +63,13 @@ const App = () => {
 
     return <div className="flex flex-col h-full">
         <Header />
-        <Controls onSearch={onSearch} onScaleChange={setScale} />
+
         {
-            filteredCourses && currencies ? <Calendar scale={scale} startDay={7} endDay={31} courses={filteredCourses} /> : ""
+            currencies ? <Controls onSearch={onSearch} onScaleChange={setScale} onCurrencyChange={setSelectedCurrency} currencies={currencies} /> : ""
+        }
+
+        {
+            filteredCourses && currencies && selectedCurrency ? <Calendar currency={selectedCurrency} scale={scale} startDay={7} endDay={31} courses={filteredCourses} /> : ""
         }
     </div>
 }
