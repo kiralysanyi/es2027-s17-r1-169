@@ -35,6 +35,7 @@ header nav span {
     flex-direction: row;
     align-items: center;
     gap: 0.6rem;
+    color: black;
 }
 
 .header-top {
