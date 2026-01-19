@@ -27,11 +27,18 @@ const Calendar = ({ startDay, endDay, courses, currencies, scale }) => {
             columnGap: "1rem",
             rowGap: "1rem", width: (500 * scale) + "%",
             gridTemplateRows: `repeat(${calculateRowCount(courses) + 1}, 1fr)`
-            }} className="grid h-full pl-2">
+        }} className="grid h-full pl-2">
             {/* Render header */}
-            {dayMap.map((day, index) => <div className={`flex flex-col align-middle justify-center gridline ${(day == "SAT") || (day == "SUN") ? "gridline-weekend" : ""}`} style={{ gridColumn: 0, gridRow: 0 }}>
+            {dayMap.map((day, index) => <div className={
+                `flex flex-col align-middle justify-center border-b-2 border-gray-300 
+                gridline ${(day == "SAT") || (day == "SUN") ? "gridline-weekend" : ""}
+                ${index == 14 ? "holiday-indicator" : "" }
+                `} style={{ gridColumn: 0, gridRow: 0 }}>
                 <span className="mx-auto">{index + 1}</span>
                 <span className={`mx-auto ${(day == "SAT") || (day == "SUN") ? "text-red-600" : ""}`}>{day}</span>
+                {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl">
+                    Hungarian Revolution
+                </span> : ""}
             </div>)}
 
             {/* Render courses */}
