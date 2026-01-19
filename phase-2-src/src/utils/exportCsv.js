@@ -3,7 +3,7 @@
  * @param {Array<Object>} courseData - Course data
  */
 const exportCsv = (courseData) => {
-    let exported = "startDate;endData;language;category;courseName;courseNameEnglish;difficulty;instructor;price\n";
+    let exported = "startDate;endDate;language;category;courseName;courseNameEnglish;difficulty;instructor;price\n";
 
     for (let i in courseData) {
         let dataLine = [];
