@@ -4,6 +4,7 @@
  * @returns 
  */
 const getDifficultyEmoji = (difficulty) => {
+    //todo: replace emojis xD
     switch (difficulty) {
         case "Beginner":
             return "🥰";
