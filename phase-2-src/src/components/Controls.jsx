@@ -19,7 +19,7 @@ const Controls = ({ onScaleChange, onSearch }) => {
     }
 
     const scaleDown = () => {
-        if (scale > 0.25) {
+        if (scale > 0.5) {
             let newScale = scale - 0.25;
             setScale(newScale)
             onScaleChange(newScale)
