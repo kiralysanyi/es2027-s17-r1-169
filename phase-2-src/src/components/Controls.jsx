@@ -89,7 +89,9 @@ const Controls = () => {
                 if (course.courseName.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
                     course.courseNameEnglish.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
                     course.instructor.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
-                    course.difficulty.toLowerCase().includes(debouncedInput.toLowerCase()) == false
+                    course.difficulty.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
+                    course.language.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
+                    course.price.toString().includes(debouncedInput.toLowerCase()) == false 
                 ) {
                     course.hidden = true;
                 } else {
