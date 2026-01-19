@@ -3,7 +3,6 @@
  * @param {string} category 
  */
 const getCategoryColor = (category) => {
-    console.log(category)
     switch (category) {
         case "Technology & Software":
             return "green"

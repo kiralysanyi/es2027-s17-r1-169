@@ -11,7 +11,7 @@ import getDifficultyEmoji from "../utils/getDifficultyEmoji";
  * @param {Object} props.course - Course object
  * @returns {React.JSX.Element} Component
  */
-const Course = ({ course, onFocus }) => {
+const Course = ({ course }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
     const { selectedCurrency } = useContext(DataContext)
@@ -21,6 +21,7 @@ const Course = ({ course, onFocus }) => {
     onFocus={(ev) => {
         ev.target.scrollIntoView()
     }}
+    aria-label={`Course: ${course.courseName} | ${course.courseNameEnglish}`}
     style={{
         transition: "200ms",
         gridRow: course.row + 1,
