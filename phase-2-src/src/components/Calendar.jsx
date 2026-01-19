@@ -64,7 +64,7 @@ const Calendar = ({ startDay, endDay }) => {
             gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
             columnGap: "0.5rem",
             rowGap: "0.5rem", width: (500 * scale) + "%",
-            gridTemplateRows: `0.5fr repeat(${calculateRowCount(courses) + 1}, 1fr)`
+            gridTemplateRows: `5rem repeat(${calculateRowCount(courses) + 1}, 1fr)`
         }} className="course-grid">
             {/* Render header */}
             {dayMap.map((day, index) => <div key={index} className={
@@ -81,7 +81,10 @@ const Calendar = ({ startDay, endDay }) => {
 
             {/* Render courses */}
             {
-                positionedCourses ? positionedCourses.map(course => <Course key={Math.random()} currency={selectedCurrency} course={course} />) : ""
+                positionedCourses ? positionedCourses.map(course => <Course
+                    key={Math.random()} 
+                    course={course}
+                    />) : ""
             }
         </div>
     </div>

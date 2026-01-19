@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import formatKlok from "../utils/formatKlok";
 import { DataContext } from "../providers/DataProvider";
 import { getFlagForLang } from "../utils/langUtils";
@@ -9,15 +9,18 @@ import getDifficultyEmoji from "../utils/getDifficultyEmoji";
  * Course card to use in calendar
  * @param {Object} props - Component props
  * @param {Object} props.course - Course object
- * @param {Object} props.currency - Currency object
  * @returns {React.JSX.Element} Component
  */
-const Course = ({ course }) => {
+const Course = ({ course, onFocus }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
     const { selectedCurrency } = useContext(DataContext)
     return <div
     className="course-card"
+    tabIndex={0}
+    onFocus={(ev) => {
+        ev.target.scrollIntoView()
+    }}
     style={{
         transition: "200ms",
         gridRow: course.row + 1,
@@ -28,7 +31,7 @@ const Course = ({ course }) => {
         borderLeft: "0.5rem solid " + getCategoryColor(course.category)
     }}
         >
-        <span className="bg-purple-200 mr-auto p-1 rounded-full text-purple-700 truncate max-w-full">
+        <span className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700">
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
         <span>
@@ -40,12 +43,12 @@ const Course = ({ course }) => {
         <div className="w-full bg-gray-400" style={{ height: "1px" }}></div>
         {
             selectedCurrency ? <span>
-                {getDifficultyEmoji(course.difficulty)} {course.difficulty} - {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}
+                {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> - {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}
             </span> : ""
         }
 
         <span>
-            {course.instructor}
+            👤 {course.instructor}
         </span>
     </div>
 }
