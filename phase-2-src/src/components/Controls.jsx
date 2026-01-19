@@ -11,7 +11,7 @@ import { DataContext } from "../providers/DataProvider";
  * @returns 
  */
 const Controls = () => {
-    const { currencies, setCurrencies, setCourses, selectedCurrency, setSelectedCurrency, scale, setScale, searchValue, setSearchValue } = useContext(DataContext)
+    const { currencies, setCurrencies, setCourses, selectedCurrency, setSelectedCurrency, scale, setScale, searchValue, setSearchValue, courses } = useContext(DataContext)
 
     const scaleUp = () => {
         if (scale < 5) {
@@ -66,10 +66,37 @@ const Controls = () => {
         })
     }, [])
 
+    // TODO: still make this debounced
+    const onSearch = (ev) => {
+        setSearchValue(ev.target.value)
+        let query = ev.target.value;
+
+
+        let filtered = courses.map((course) => {
+            if (query.length == 0) {
+                course.hidden = false;
+                return course
+            }
+
+            if (course.courseName.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.courseNameEnglish.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.instructor.toLowerCase().includes(query.toLowerCase()) == false &&
+                course.difficulty.toLowerCase().includes(query.toLowerCase()) == false
+            ) {
+                course.hidden = true;
+            } else {
+                course.hidden = false;
+            }
+
+            return course
+        })
+        setCourses(filtered)
+    }
+
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => { setSearchValue(ev.target.value) }} />
+        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={onSearch} />
 
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
