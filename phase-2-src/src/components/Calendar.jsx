@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import calcDayNames from "../utils/calcDayNames";
 import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
