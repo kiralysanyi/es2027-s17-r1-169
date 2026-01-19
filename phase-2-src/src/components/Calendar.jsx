@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import calcDayNames from "../utils/calcDayNames";
 import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
 import Course from "./Course";
+import { DataContext } from "../providers/DataProvider";
 
 /**
  * Very good calendar component
@@ -17,7 +18,8 @@ import Course from "./Course";
  * * @example
  * <Calendar startDay="sunday" endDay={31} />
  */
-const Calendar = ({ startDay, endDay, courses, currency, scale }) => {
+const Calendar = ({ startDay, endDay }) => {
+    const { courses, selectedCurrency, scale } = useContext(DataContext)
     const positionedCourses = positionCourses(courses)
     const dayMap = calcDayNames(startDay, endDay)
     return <div className="w-full overflow-x-auto flex-1 h-full relative">
@@ -36,14 +38,14 @@ const Calendar = ({ startDay, endDay, courses, currency, scale }) => {
                 `} style={{ gridColumn: index + 1, gridRow: 0 }}>
                 <span className="mx-auto">{index + 1}</span>
                 <span className={`mx-auto ${(day == "SAT") || (day == "SUN") ? "text-red-600" : ""}`}>{day}</span>
-                {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl" style={{marginBottom: "-1rem"}}>
+                {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl" style={{ marginBottom: "-1rem" }}>
                     Hungarian Revolution
                 </span> : ""}
             </div>)}
 
             {/* Render courses */}
             {
-                positionedCourses.map(course => <Course currency={currency} course={course} />)
+                positionedCourses ? positionedCourses.map(course => <Course currency={selectedCurrency} course={course} />):""
             }
         </div>
     </div>

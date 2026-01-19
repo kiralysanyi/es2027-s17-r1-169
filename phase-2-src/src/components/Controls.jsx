@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../providers/DataProvider";
 
 /**
  * 
@@ -9,15 +10,13 @@ import { useEffect, useState } from "react";
  * @param {Object} props.currencies
  * @returns 
  */
-const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => {
-    const [scale, setScale] = useState(1);
-    const [currency, setCurrency] = useState({ name: "EUR", value: 1 })
+const Controls = () => {
+    const { currencies, setCurrencies, setCourses, selectedCurrency, setSelectedCurrency, scale, setScale, searchValue, setSearchValue } = useContext(DataContext)
 
     const scaleUp = () => {
         if (scale < 5) {
             let newScale = scale + 0.25;
             setScale(newScale)
-            onScaleChange(newScale)
         }
     }
 
@@ -25,44 +24,60 @@ const Controls = ({ onScaleChange, onSearch, onCurrencyChange, currencies }) => 
         if (scale > 0.5) {
             let newScale = scale - 0.25;
             setScale(newScale)
-            onScaleChange(newScale)
         }
     }
 
     const changeCurrency = (ev) => {
         localStorage.setItem("currency", JSON.parse(ev.target.value).name)
-        setCurrency(ev.target.value);
-        onCurrencyChange(JSON.parse(ev.target.value))
+        setSelectedCurrency(ev.target.value);
     }
 
-    // load selected currency if existing in localstorage
+    // load data
     useEffect(() => {
-        const saved = localStorage.getItem("currency")
-        console.log(saved, currencies[saved])
-        if (saved != null) {
-            setCurrency(JSON.stringify({
-                name: saved,
-                value: currencies[saved]
-            }))
-            onCurrencyChange({
-                name: saved,
-                value: currencies[saved]
-            })
-        }
-    }, currencies)
+        fetch("/phase-2/courses.json", {
+            method: "GET", headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(async (response) => {
+            const data = await response.json();
+            console.log("Got data: ", data)
+            setCourses(data)
+        })
 
-    const [searchValue, setSearchValue] = useState("")
+        fetch("/phase-2/currencies.json", {
+            method: "GET", headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(async (response) => {
+            const data = await response.json();
+            console.log("Got data: ", data)
+            setCurrencies(data);
+
+            // load currency selector data
+            const saved = localStorage.getItem("currency")
+            console.log(saved, currencies[saved])
+            if (saved != null) {
+                console.log("blyat", data[saved])
+                setSelectedCurrency(JSON.stringify({
+                    name: saved,
+                    value: data[saved]
+                }))
+            }
+        })
+    }, [])
+
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => { onSearch(ev.target.value); setSearchValue(ev.target.value) }} />
+        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={(ev) => { setSearchValue(ev.target.value) }} />
 
-        {/* TODO: actually fill this up with data and add functionality */}
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
-            <select name="currency" value={currency} id="currency" onChange={changeCurrency}>
-                {Object.keys(currencies).map(currency => <option value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
-            </select>
+            {
+                selectedCurrency && currencies ? <select name="currency" value={selectedCurrency} id="currency" onChange={changeCurrency}>
+                    {Object.keys(currencies).map(currency => <option value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
+                </select> : ""
+            }
         </div>
         <button className="control-button" onClick={() => {
             document.body.requestFullscreen()
