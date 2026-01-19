@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../providers/DataProvider";
+import useDebounce from "../hooks/useDebounce";
 
 /**
  * Controls component, and this component sets data in the DataContext mostly
@@ -66,37 +67,40 @@ const Controls = () => {
         })
     }, [])
 
-    // TODO: still make this debounced
-    const onSearch = (ev) => {
-        setSearchValue(ev.target.value)
-        let query = ev.target.value;
+    const [searchInput, setSearchInput] = useState("");
+    const debouncedInput = useDebounce(searchInput, 300);
+
+    useEffect(() => {
+        if (courses) {
+            setSearchValue(debouncedInput)
 
 
-        let filtered = courses.map((course) => {
-            if (query.length == 0) {
-                course.hidden = false;
+            let filtered = courses.map((course) => {
+                if (debouncedInput.length == 0) {
+                    course.hidden = false;
+                    return course
+                }
+
+                if (course.courseName.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
+                    course.courseNameEnglish.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
+                    course.instructor.toLowerCase().includes(debouncedInput.toLowerCase()) == false &&
+                    course.difficulty.toLowerCase().includes(debouncedInput.toLowerCase()) == false
+                ) {
+                    course.hidden = true;
+                } else {
+                    course.hidden = false;
+                }
+
                 return course
-            }
-
-            if (course.courseName.toLowerCase().includes(query.toLowerCase()) == false &&
-                course.courseNameEnglish.toLowerCase().includes(query.toLowerCase()) == false &&
-                course.instructor.toLowerCase().includes(query.toLowerCase()) == false &&
-                course.difficulty.toLowerCase().includes(query.toLowerCase()) == false
-            ) {
-                course.hidden = true;
-            } else {
-                course.hidden = false;
-            }
-
-            return course
-        })
-        setCourses(filtered)
-    }
+            })
+            setCourses(filtered)
+        }
+    }, [debouncedInput])
 
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchValue} placeholder="🔍 Search..." onChange={onSearch} />
+        <input type="text" value={searchInput} placeholder="🔍 Search..." onChange={(ev) => { setSearchInput(ev.target.value) }} />
 
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
