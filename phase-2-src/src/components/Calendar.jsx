@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import calcDayNames from "../utils/calcDayNames";
 import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
@@ -26,13 +26,35 @@ const Calendar = ({ startDay, endDay }) => {
     const gridContainerRef = useRef(null)
 
     const goLeft = () => {
-        gridContainerRef.current.scrollBy({left: -100})
+        gridContainerRef.current.scrollBy({ left: -100 })
 
     }
 
     const goRight = () => {
-        gridContainerRef.current.scrollBy({left: 100})
+        gridContainerRef.current.scrollBy({ left: 100 })
     }
+
+    // attach key listener
+    useEffect(() => {
+        const evHandler = (ev) => {
+            if (ev.ctrlKey) {
+                if (ev.key == "ArrowLeft") {
+                    goLeft()
+                }
+
+                if (ev.key == "ArrowRight") {
+                    goRight()
+                }
+            }
+        }
+
+        window.addEventListener("keydown", evHandler)
+
+        return () => {
+            window.removeEventListener("keydown", evHandler)
+
+        }
+    }, []);
 
     return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth" ref={gridContainerRef}>
         <button onClick={goLeft} className="control-button fixed z-10 top-2/4 left-1">⬅️</button>
@@ -59,7 +81,7 @@ const Calendar = ({ startDay, endDay }) => {
 
             {/* Render courses */}
             {
-                positionedCourses ? positionedCourses.map(course => <Course key={Math.random()} currency={selectedCurrency} course={course} />):""
+                positionedCourses ? positionedCourses.map(course => <Course key={Math.random()} currency={selectedCurrency} course={course} />) : ""
             }
         </div>
     </div>
