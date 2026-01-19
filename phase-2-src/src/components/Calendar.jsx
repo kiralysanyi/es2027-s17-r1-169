@@ -31,7 +31,7 @@ const Calendar = ({ startDay, endDay }) => {
             gridTemplateRows: `0.5fr repeat(${calculateRowCount(courses) + 1}, 1fr)`
         }} className="course-grid">
             {/* Render header */}
-            {dayMap.map((day, index) => <div className={
+            {dayMap.map((day, index) => <div key={index} className={
                 `flex flex-col align-middle justify-center border-b-2 border-gray-300 
                 gridline grid-head ${(day == "SAT") || (day == "SUN") ? "gridline-weekend" : ""}
                 ${index == 14 ? "holiday-indicator" : ""}
@@ -45,7 +45,7 @@ const Calendar = ({ startDay, endDay }) => {
 
             {/* Render courses */}
             {
-                positionedCourses ? positionedCourses.map(course => <Course currency={selectedCurrency} course={course} />):""
+                positionedCourses ? positionedCourses.map(course => <Course key={Math.random()} currency={selectedCurrency} course={course} />):""
             }
         </div>
     </div>

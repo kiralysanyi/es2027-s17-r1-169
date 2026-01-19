@@ -102,7 +102,7 @@ const Controls = () => {
             <label htmlFor="currency">💰</label>
             {
                 selectedCurrency && currencies ? <select name="currency" value={selectedCurrency} id="currency" onChange={changeCurrency}>
-                    {Object.keys(currencies).map(currency => <option value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
+                    {Object.keys(currencies).map(currency => <option key={currency} value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
                 </select> : ""
             }
         </div>
