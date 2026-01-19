@@ -159,22 +159,22 @@ const Controls = () => {
 
     return <div className="flex flex-row gap-2 bg-gray-100 p-2 align-middle">
         <span className="font-bold self-center">2026. March</span>
-        <input type="text" value={searchInput} ref={searchRef} placeholder="🔍 Search..." onChange={(ev) => { setSearchInput(ev.target.value) }} />
+        <input aria-label="Search courses" type="text" value={searchInput} ref={searchRef} placeholder="🔍 Search..." onChange={(ev) => { setSearchInput(ev.target.value) }} />
 
         <div className="input-group ml-auto">
             <label htmlFor="currency">💰</label>
             {
-                selectedCurrency && currencies ? <select name="currency" value={selectedCurrency} id="currency" onChange={changeCurrency}>
-                    {Object.keys(currencies).map(currency => <option key={currency} value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
+                selectedCurrency && currencies ? <select aria-label="Select currency" name="currency" value={selectedCurrency} id="currency" onChange={changeCurrency}>
+                    {Object.keys(currencies).map(currency => <option aria-label={currency} key={currency} value={JSON.stringify({ name: currency, value: currencies[currency] })}>{currency}</option>)}
                 </select> : ""
             }
         </div>
-        <button className="control-button" onClick={() => {
+        <button aria-label="fullscreen" className="control-button" onClick={() => {
             document.body.requestFullscreen()
         }}>🔝 Full Screen</button>
-        <button className="control-button" onClick={onExport}> 📁 Export</button>
-        <button className="control-button" disabled={scale == 0.5} onClick={scaleDown}>➖</button>
-        <button  className="control-button" disabled={scale == 5} onClick={scaleUp}>➕</button>
+        <button className="control-button" aria-label="Export courses" onClick={onExport}> 📁 Export</button>
+        <button className="control-button" aria-label="Zoom Out" disabled={scale == 0.5} onClick={scaleDown}>➖</button>
+        <button className="control-button" aria-label="Zoom In" disabled={scale == 5} onClick={scaleUp}>➕</button>
     </div>
 }
 
