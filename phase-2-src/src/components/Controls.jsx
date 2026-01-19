@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../providers/DataProvider";
 import useDebounce from "../hooks/useDebounce";
+import exportCsv from "../utils/exportCsv";
 
 /**
  * Controls component, and this component sets data in the DataContext mostly
@@ -26,6 +27,10 @@ const Controls = () => {
             let newScale = scale - 0.25;
             setScale(newScale)
         }
+    }
+
+    const onExport = () => {
+        exportCsv(courses);
     }
 
     const changeCurrency = (ev) => {
@@ -113,7 +118,7 @@ const Controls = () => {
         <button className="control-button" onClick={() => {
             document.body.requestFullscreen()
         }}>🔝 Full Screen</button>
-        <button className="control-button"> 📁 Export</button>
+        <button className="control-button" onClick={onExport}> 📁 Export</button>
         <button className="control-button" onClick={scaleDown}>➖</button>
         <button className="control-button" onClick={scaleUp}>➕</button>
     </div>
