@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../providers/DataProvider";
 
 /**
- * Controls component
+ * Controls component, and this component sets data in the DataContext mostly
  * @param {Object} props
  * @param {Function} props.onScaleChange
  * @param {Function} props.onSearch
