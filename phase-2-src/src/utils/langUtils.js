@@ -1,3 +1,8 @@
+/**
+ * Return a flag for a language, good deal right?
+ * @param {string} language 
+ * @returns 
+ */
 const getFlagForLang = (language) => {
     switch (language) {
         case "Hungarian":

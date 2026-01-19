@@ -2,6 +2,7 @@ import { useContext } from "react";
 import formatKlok from "../utils/formatKlok";
 import { DataContext } from "../providers/DataProvider";
 import { getFlagForLang } from "../utils/langUtils";
+import getCategoryColor from "../utils/getCategoryColor";
 
 /**
  * Course card to use in calendar
@@ -14,16 +15,18 @@ const Course = ({ course }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
     const { selectedCurrency } = useContext(DataContext)
-    return <div style={{
+    return <div
+    className="course-card"
+    style={{
         transition: "200ms",
         gridRow: course.row + 1,
         gridColumnStart: startDate.getDate(),
         gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31,
         opacity: course.hidden == true ? 0 : 1,
-        cursor: course.hidden == true ? "default" : "pointer"
+        cursor: course.hidden == true ? "default" : "pointer",
+        borderLeft: "0.5rem solid " + getCategoryColor(course.category)
     }}
-
-        className="course-card">
+        >
         <span className="bg-purple-200 mr-auto p-1 rounded-full text-purple-700 truncate max-w-full">
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
