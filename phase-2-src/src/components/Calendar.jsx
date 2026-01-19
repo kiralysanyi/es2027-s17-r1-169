@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import calcDayNames from "../utils/calcDayNames";
 import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
@@ -22,7 +22,21 @@ const Calendar = ({ startDay, endDay }) => {
     const { courses, selectedCurrency, scale } = useContext(DataContext)
     const positionedCourses = positionCourses(courses)
     const dayMap = calcDayNames(startDay, endDay)
-    return <div className="w-full overflow-x-auto flex-1 h-full relative">
+
+    const gridContainerRef = useRef(null)
+
+    const goLeft = () => {
+        gridContainerRef.current.scrollBy({left: -100})
+
+    }
+
+    const goRight = () => {
+        gridContainerRef.current.scrollBy({left: 100})
+    }
+
+    return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth" ref={gridContainerRef}>
+        <button onClick={goLeft} className="control-button fixed z-10 top-2/4 left-1">⬅️</button>
+        <button onClick={goRight} className="control-button fixed z-10 top-2/4 right-1">➡️</button>
         <div style={{
             transition: "200ms",
             gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
