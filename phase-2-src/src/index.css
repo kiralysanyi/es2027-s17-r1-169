@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root, body, #root {
+:root,
+body,
+#root {
     @apply h-full;
 }
 
@@ -23,4 +25,24 @@ select:hover {
 
 .control-button:hover {
     @apply cursor-pointer;
+}
+
+.gridline {
+    position: relative;
+}
+
+.gridline::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -0.5rem;
+    width: calc(100% + 2rem);
+    height: 100dvh;
+    background-color: white;
+    z-index: -1;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+.gridline-weekend::after {
+    background-color: rgb(232, 232, 232);
 }
