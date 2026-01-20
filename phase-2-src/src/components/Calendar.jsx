@@ -82,7 +82,7 @@ const Calendar = ({ startDay, endDay }) => {
         }} className="course-grid absolute top-0 left-0">
             {/* Render header */}
             {dayMap.map((day, index) => <div key={index} className={
-                `flex flex-col align-middle justify-center border-b-2 border-gray-300 grid-head`} style={{ gridColumn: index + 1, gridRow: 0 }}>
+                `flex flex-col align-middle justify-center border-b-2 border-gray-300 grid-head ${day == "SAT" || day == "SUN" ? "bg-gray-100": "bg-white"}`} style={{ gridColumn: index + 1, gridRow: 0 }}>
                 <span className="mx-auto">{index + 1}</span>
                 <span className={`mx-auto ${(day == "SAT") || (day == "SUN") ? "text-red-600" : ""}`}>{day}</span>
                 {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl" style={{ marginBottom: "-1rem" }}>
