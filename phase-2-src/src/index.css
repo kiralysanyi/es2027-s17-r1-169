@@ -87,3 +87,15 @@ select:hover {
 .course-card span {
     @apply truncate text-ellipsis
 }
+
+.grid-bg {
+    @apply w-full top-0 left-0 h-full;
+}
+
+.grid-bg-col {
+    @apply bg-white border border-gray-200 border-dashed;
+}
+
+.grid-bg-col-weekend {
+    @apply bg-gray-100;
+}
