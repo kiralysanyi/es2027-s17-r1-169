@@ -4,19 +4,18 @@
  * @returns 
  */
 const getDifficultyEmoji = (difficulty) => {
-    //todo: replace emojis xD
     switch (difficulty) {
         case "Beginner":
-            return "🥰";
+            return "🔴";
 
         case "Intermediate":
-            return "☺️"
+            return "🟠"
 
         case "Expert":
-            return "😭"
+            return "🟢"
     
         default:
-            return "💀💀"
+            return "-"
     }
 }
 
