@@ -35,16 +35,16 @@ const Course = ({ course }) => {
         <span className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700">
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
-        <span>
+        <span className="font-bold">
             {getFlagForLang(course.language)} {course.courseName}
         </span>
-        {course.courseName != course.courseNameEnglish ? <span>
+        {course.courseName != course.courseNameEnglish ? <span className="text-gray-500">
             {course.courseNameEnglish}
         </span> : ""}
         <div className="w-full bg-gray-400" style={{ height: "1px" }}></div>
         {
             selectedCurrency ? <span>
-                {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> - {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}
+                {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> &bull; <span className="font-bold italic"> {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}</span>
             </span> : ""
         }
 
