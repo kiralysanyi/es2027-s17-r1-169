@@ -42,36 +42,6 @@ select:hover {
     @apply grid h-full pl-2;
 }
 
-.gridline {
-    position: relative;
-}
-
-.gridline::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: -0.25rem;
-    height: 100dvh;
-    width: calc(100% + 2rem);
-    z-index: -1;
-    @apply bg-white border-2 border-zinc-200;
-}
-
-.holiday-indicator::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 1px;
-    height: 100dvh;
-    z-index: 3;
-    background-color: rgb(255, 0, 0);
-}
-
-.gridline-weekend::after {
-    @apply bg-gray-100;
-}
-
 .grid-head {
     position: relative;
     z-index: 1;
