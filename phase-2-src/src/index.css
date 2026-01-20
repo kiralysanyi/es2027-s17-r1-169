@@ -74,3 +74,26 @@ select:hover {
     @apply block absolute left-1/2 h-full bg-red-500/40 z-10;
     width: 1px;
 }
+
+
+.course-card {
+    transition: 200ms;
+    view-timeline-name: --card-exit;
+    view-timeline-axis: inline;
+
+    animation: shrink-out linear both;
+    animation-timeline: --card-exit;
+    animation-range: exit 0% exit 100%;
+}
+
+@keyframes shrink-out {
+    0% {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    100% {
+        width: 0%;
+        margin-left: 95%;
+    }
+}
