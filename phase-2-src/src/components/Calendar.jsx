@@ -26,12 +26,12 @@ const Calendar = ({ startDay, endDay }) => {
     const gridContainerRef = useRef(null)
 
     const goLeft = () => {
-        gridContainerRef.current.scrollBy({ left: -100 })
+        gridContainerRef.current.scrollBy({ left: -1000 })
 
     }
 
     const goRight = () => {
-        gridContainerRef.current.scrollBy({ left: 100 })
+        gridContainerRef.current.scrollBy({ left: 1000 })
     }
 
     // attach key listener
