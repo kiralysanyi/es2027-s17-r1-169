@@ -29,6 +29,7 @@
     padding: 3rem;
     padding-top: 4rem;
     padding-right: 2rem;
+    padding-bottom: 0rem;
 }
 
 .benefits-cta p {
@@ -42,6 +43,12 @@
 .benefits-cover {
     border-radius: 1rem;
     width: calc(50dvw - 6rem);
+}
+
+@media (min-width: 1430px) {
+    .benefits-cta h1 {
+        margin-right: 10rem;
+    }
 }
 
 @media (max-width: 720px) {
