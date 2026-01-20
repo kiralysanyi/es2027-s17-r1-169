@@ -57,13 +57,11 @@ const Calendar = ({ startDay, endDay }) => {
     }, []);
 
     // adjust scroll when zooming
-    // todo: improve this garbage
 
     useEffect(() => {
         const el = gridContainerRef.current
         const scrollPercent = el.scrollLeft / el.scrollWidth;
         setTimeout(() => {
-            console.log(scrollPercent)
             el.scrollTo({ left: el.scrollWidth * scrollPercent })
         }, 210);
 
