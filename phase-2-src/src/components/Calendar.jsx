@@ -59,17 +59,14 @@ const Calendar = ({ startDay, endDay }) => {
     // adjust scroll when zooming
     // todo: improve this garbage
 
-    const [localScale, setLocalScale] = useState(scale)
-
     useEffect(() => {
-        let scaleDiff = scale - localScale
-
         const el = gridContainerRef.current
-        el.style.scrollBehavior = "auto"
-        el.scrollTo({ left: el.scrollLeft + (el.scrollLeft * scaleDiff) })
-        el.style.scrollBehavior = "smooth"
+        const scrollPercent = el.scrollLeft / el.scrollWidth;
+        setTimeout(() => {
+            console.log(scrollPercent)
+            el.scrollTo({ left: el.scrollWidth * scrollPercent })
+        }, 210);
 
-        setLocalScale(scale)
     }, [scale])
 
     return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth block transition" ref={gridContainerRef}>
@@ -80,7 +77,7 @@ const Calendar = ({ startDay, endDay }) => {
                 display: "grid",
                 gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
                 columnGap: "0",
-                rowGap: "0.5rem", width: (500 * localScale) + "%",
+                rowGap: "0.5rem", width: (500 * scale) + "%",
 
             }}
         >
@@ -92,7 +89,7 @@ const Calendar = ({ startDay, endDay }) => {
             transition: "200ms",
             gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
             columnGap: "0.5rem",
-            rowGap: "0.5rem", width: (500 * localScale) + "%",
+            rowGap: "0.5rem", width: (500 * scale) + "%",
             gridTemplateRows: `5rem repeat(${calculateRowCount(courses) + 1}, 1fr)`
         }} className="course-grid absolute top-0 left-0">
             {/* Render header */}
