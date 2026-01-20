@@ -4,7 +4,8 @@
  */
 const exportCsv = (courseData) => {
     let exported = "startDate;endDate;language;category;courseName;courseNameEnglish;difficulty;instructor;price\n";
-    //TODO: order by date
+    courseData.sort((a, b) => new Date(a["startDate"]) - new Date(b["startDate"]))
+
     for (let i in courseData) {
         let dataLine = [];
         let filteredKeys = Object.keys(courseData[i]).filter(key => key != "hidden" && key != "row")
