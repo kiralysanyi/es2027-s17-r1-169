@@ -63,7 +63,6 @@ const Controls = () => {
             const saved = localStorage.getItem("currency")
             console.log(saved, currencies[saved])
             if (saved != null) {
-                console.log("blyat", data[saved])
                 setSelectedCurrency(JSON.stringify({
                     name: saved,
                     value: data[saved]
