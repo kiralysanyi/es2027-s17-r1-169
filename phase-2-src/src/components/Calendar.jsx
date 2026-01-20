@@ -57,6 +57,7 @@ const Calendar = ({ startDay, endDay }) => {
     }, []);
 
     // adjust scroll when zooming
+    // todo: improve this garbage
 
     const [localScale, setLocalScale] = useState(scale)
 
