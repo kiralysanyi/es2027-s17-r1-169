@@ -44,7 +44,7 @@ select:hover {
 
 .grid-head {
     position: relative;
-    z-index: 1;
+    z-index: 15;
 }
 
 .course-card {
@@ -63,9 +63,14 @@ select:hover {
 }
 
 .grid-bg-col {
-    @apply bg-white border border-gray-200 border-dashed;
+    @apply bg-white border border-gray-200 border-dashed relative;
 }
 
 .grid-bg-col-weekend {
     @apply bg-gray-100;
+}
+
+.holiday-line {
+    @apply block absolute left-1/2 h-full bg-red-500/40 z-10;
+    width: 1px;
 }

@@ -70,7 +70,7 @@ const Calendar = ({ startDay, endDay }) => {
             }}
         >
             {dayMap.map((day, index) => <div className={`grid-bg-col ${day == "SAT" || day == "SUN" ? "grid-bg-col-weekend":""}`}>
-
+                {index == 14? <div className="holiday-line"></div> : ""}
             </div>)}
         </div>
         <div style={{
