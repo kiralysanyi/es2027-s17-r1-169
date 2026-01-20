@@ -56,6 +56,8 @@ const Calendar = ({ startDay, endDay }) => {
         }
     }, []);
 
+    // todo: add that card hiding animation thing when scrolling
+
     return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth block" ref={gridContainerRef}>
         <button onClick={goLeft} className="control-button fixed z-10 top-2/4 left-1">⬅️</button>
         <button onClick={goRight} className="control-button fixed z-10 top-2/4 right-1">➡️</button>
