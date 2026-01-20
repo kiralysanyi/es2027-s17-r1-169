@@ -23,6 +23,7 @@
     flex-direction: row;
     align-content: center;
     gap: 1rem;
+    color: var(--section-header-color);
 }
 
 .comment-user img {

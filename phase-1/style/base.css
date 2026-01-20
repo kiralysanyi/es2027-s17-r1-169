@@ -11,6 +11,7 @@ input {
 }
 
 h2 {
+    color: var(--section-header-color);
     font-size: 2rem;
     margin-top: 0.5rem;
 }
@@ -153,6 +154,6 @@ a:visited {
 
 @media (max-width: 500px) {
     section {
-        padding: 1rem !important;
+        padding: 0.75rem !important;
     }
 }

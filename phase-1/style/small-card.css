@@ -18,6 +18,7 @@
 
 .small-card h3 {
     font-size: 1rem;
+    color: var(--section-header-color);
 }
 
 .small-card .text-group {
