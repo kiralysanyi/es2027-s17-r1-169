@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import calcDayNames from "../utils/calcDayNames";
 import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
@@ -56,35 +56,47 @@ const Calendar = ({ startDay, endDay }) => {
         }
     }, []);
 
-    // todo: add that card hiding animation thing when scrolling
+    // adjust scroll when zooming
 
-    return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth block" ref={gridContainerRef}>
+    const [localScale, setLocalScale] = useState(scale)
+
+    useEffect(() => {
+        let scaleDiff = scale - localScale
+
+        const el = gridContainerRef.current
+        el.style.scrollBehavior = "auto"
+        el.scrollTo({ left: el.scrollLeft + (el.scrollLeft * scaleDiff) })
+        el.style.scrollBehavior = "smooth"
+
+        setLocalScale(scale)
+    }, [scale])
+
+    return <div className="w-full overflow-x-auto flex-1 h-full relative scroll-smooth block transition" ref={gridContainerRef}>
         <button onClick={goLeft} className="control-button fixed z-10 top-2/4 left-1">⬅️</button>
         <button onClick={goRight} className="control-button fixed z-10 top-2/4 right-1">➡️</button>
-        <div className="grid-bg"
+        <div className="grid-bg transition"
             style={{
                 display: "grid",
-                transition: "200ms",
                 gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
                 columnGap: "0",
-                rowGap: "0.5rem", width: (500 * scale) + "%",
-                
+                rowGap: "0.5rem", width: (500 * localScale) + "%",
+
             }}
         >
-            {dayMap.map((day, index) => <div className={`grid-bg-col ${day == "SAT" || day == "SUN" ? "grid-bg-col-weekend":""}`}>
-                {index == 14? <div className="holiday-line"></div> : ""}
+            {dayMap.map((day, index) => <div className={`grid-bg-col ${day == "SAT" || day == "SUN" ? "grid-bg-col-weekend" : ""}`}>
+                {index == 14 ? <div className="holiday-line"></div> : ""}
             </div>)}
         </div>
         <div style={{
             transition: "200ms",
             gridTemplateColumns: `repeat(${endDay}, minmax(0, 1fr))`,
             columnGap: "0.5rem",
-            rowGap: "0.5rem", width: (500 * scale) + "%",
+            rowGap: "0.5rem", width: (500 * localScale) + "%",
             gridTemplateRows: `5rem repeat(${calculateRowCount(courses) + 1}, 1fr)`
         }} className="course-grid absolute top-0 left-0">
             {/* Render header */}
             {dayMap.map((day, index) => <div key={index} className={
-                `flex flex-col align-middle justify-center border-b-2 border-gray-300 grid-head ${day == "SAT" || day == "SUN" ? "bg-gray-100": "bg-white"}`} style={{ gridColumn: index + 1, gridRow: 0 }}>
+                `flex flex-col align-middle justify-center border-b-2 border-gray-300 grid-head ${day == "SAT" || day == "SUN" ? "bg-gray-100" : "bg-white"}`} style={{ gridColumn: index + 1, gridRow: 0 }}>
                 <span className="mx-auto">{index + 1}</span>
                 <span className={`mx-auto ${(day == "SAT") || (day == "SUN") ? "text-red-600" : ""}`}>{day}</span>
                 {index == 14 ? <span className="text-white bg-red-600 text-center rounded-xl" style={{ marginBottom: "-1rem" }}>

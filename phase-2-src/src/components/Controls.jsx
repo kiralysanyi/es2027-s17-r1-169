@@ -16,15 +16,15 @@ const Controls = () => {
     const { currencies, setCurrencies, setCourses, selectedCurrency, setSelectedCurrency, scale, setScale, searchValue, setSearchValue, courses } = useContext(DataContext)
 
     const scaleUp = () => {
-        if (scale < 5) {
-            let newScale = scale + 0.25;
+        if (scale < 2) {
+            let newScale = scale + 0.1;
             setScale(newScale)
         }
     }
 
     const scaleDown = () => {
         if (scale > 0.5) {
-            let newScale = scale - 0.25;
+            let newScale = scale - 0.1;
             setScale(newScale)
         }
     }

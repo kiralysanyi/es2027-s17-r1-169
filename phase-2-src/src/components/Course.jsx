@@ -23,7 +23,6 @@ const Course = ({ course }) => {
     }}
     aria-label={`Course: ${course.courseName} | ${course.courseNameEnglish}`}
     style={{
-        transition: "200ms",
         gridRow: course.row + 1,
         gridColumnStart: startDate.getDate(),
         gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31,

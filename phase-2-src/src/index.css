@@ -60,10 +60,12 @@ select:hover {
 
 .grid-bg {
     @apply w-full top-0 left-0 h-full;
+    transition: 200ms;
 }
 
 .grid-bg-col {
     @apply bg-white border border-gray-200 border-dashed relative;
+    transition: 200ms;
 }
 
 .grid-bg-col-weekend {
