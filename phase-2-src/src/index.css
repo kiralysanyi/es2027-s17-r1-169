@@ -78,7 +78,7 @@ select:hover {
 }
 
 
-.course-card {
+.course-card-scroll-animation {
     transition: 200ms;
     view-timeline-name: --card-exit;
     view-timeline-axis: inline;

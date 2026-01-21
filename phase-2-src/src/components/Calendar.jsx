@@ -34,8 +34,8 @@ const Calendar = ({ startDay, endDay }) => {
         gridContainerRef.current.scrollBy({ left: 1000 })
     }
 
-    // attach key listener
     useEffect(() => {
+        // attach key listener
         const evHandler = (ev) => {
 
             if (ev.key == "ArrowLeft") {

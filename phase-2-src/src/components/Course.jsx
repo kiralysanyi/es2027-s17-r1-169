@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import formatKlok from "../utils/formatKlok";
 import { DataContext } from "../providers/DataProvider";
 import { getFlagForLang } from "../utils/langUtils";
@@ -14,23 +14,35 @@ import getDifficultyEmoji from "../utils/getDifficultyEmoji";
 const Course = ({ course }) => {
     const startDate = new Date(course["startDate"]);
     const endDate = new Date(course["endDate"]);
-    const { selectedCurrency } = useContext(DataContext)
+    const { selectedCurrency } = useContext(DataContext);
+
+    const [enableScrollAnim, setEnableScrollAnim] = useState(false);
+
+    useEffect(() => {
+        // check if css animation supported
+        const isScrollAnimSupported = typeof window !== 'undefined' &&
+            'ScrollTimeline' in window &&
+            'ViewTimeline' in window;
+
+        setEnableScrollAnim(isScrollAnimSupported)
+    }, [])
+
     return <div
-    className="course-card"
-    tabIndex={0}
-    onFocus={(ev) => {
-        ev.target.scrollIntoView()
-    }}
-    aria-label={`Course: ${course.courseName} | ${course.courseNameEnglish}`}
-    style={{
-        gridRow: course.row + 1,
-        gridColumnStart: startDate.getDate(),
-        gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31,
-        opacity: course.hidden == true ? 0 : 1,
-        cursor: course.hidden == true ? "default" : "pointer",
-        borderLeft: "0.5rem solid " + getCategoryColor(course.category)
-    }}
-        >
+        className={`course-card ${enableScrollAnim? "course-card-scroll-animation": ""}`}
+        tabIndex={0}
+        onFocus={(ev) => {
+            ev.target.scrollIntoView()
+        }}
+        aria-label={`Course: ${course.courseName} | ${course.courseNameEnglish}`}
+        style={{
+            gridRow: course.row + 1,
+            gridColumnStart: startDate.getDate(),
+            gridColumnEnd: endDate.getMonth() == 2 ? endDate.getDate() : 31,
+            opacity: course.hidden == true ? 0 : 1,
+            cursor: course.hidden == true ? "default" : "pointer",
+            borderLeft: "0.5rem solid " + getCategoryColor(course.category)
+        }}
+    >
         <span className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700">
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
