@@ -1,5 +1,5 @@
 /**
- * Return a flag for a language, good deal right?
+ * Return a flag for a language, the flags won't display on windows btw
  * @param {string} language 
  * @returns 
  */
