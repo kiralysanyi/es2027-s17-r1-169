@@ -12,3 +12,9 @@
         padding-right: 3rem;
     }
 }
+
+@media (max-width: 500px) {
+    .explore {
+        padding-bottom: 3rem !important;
+    }
+}
