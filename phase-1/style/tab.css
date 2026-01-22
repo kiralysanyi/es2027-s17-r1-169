@@ -82,4 +82,12 @@
         gap: 0px;
     }
 
+    .card-container {
+        margin-top: 0.5rem;
+    }
+
+    .card .cover {
+        margin-top: 1rem;
+    }
+
 }

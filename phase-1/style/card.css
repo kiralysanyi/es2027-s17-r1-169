@@ -22,7 +22,7 @@
 }
 
 .card .cover {
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 0.5rem;
 }
 
@@ -81,5 +81,11 @@
 
     .card-container .card:first-child .cover {
         display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .card .cover {
+        max-height: 14rem;
     }
 }
