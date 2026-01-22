@@ -157,10 +157,12 @@ a:visited {
     display: none;
 }
 
-/* Decrease padding on sections under specific vw width */
+/* Decrease padding on sections under specific vw */
 
 @media (max-width: 500px) {
     section {
         padding: 0.75rem !important;
+        padding-left: 0.9rem !important;
+        padding-right: 0.9rem !important;
     }
 }

@@ -16,4 +16,8 @@
     .trending-courses {
         gap: 2rem;
     }
+
+    .trending-courses .text-group {
+        gap: 0.75rem;
+    }
 }
