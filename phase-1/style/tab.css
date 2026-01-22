@@ -82,11 +82,11 @@
         gap: 0px;
     }
 
-    .card-container {
+    .trending-courses .card-container {
         margin-top: 0.5rem;
     }
 
-    .card .cover {
+    .trending-courses .card .cover {
         margin-top: 1rem;
     }
 
