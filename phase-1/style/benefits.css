@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: row;
     padding: 3rem;
+    padding-bottom: 4rem;
     gap: 0rem;
 }
 
 .benefits-list {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.3rem;
     padding-top: 8rem;
     padding-right: 7rem;
     justify-content: flex-start;
@@ -28,12 +29,16 @@
     gap: 2rem;
     padding: 3rem;
     padding-top: 4rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
     padding-bottom: 0rem;
 }
 
 .benefits-cta p {
     font-size: 1.1rem;
+}
+
+.benefits-cta h1 {
+    line-height: 2.5rem;
 }
 
 .benefits-cta-button {
