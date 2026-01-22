@@ -60,6 +60,7 @@
         text-align: center;
         justify-items: center;
         align-items: center;
+        flex: 1 1;
     }
 
     .hero-content .btn {
