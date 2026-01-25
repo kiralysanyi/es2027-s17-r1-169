@@ -29,7 +29,7 @@
     flex-shrink: 0;
     gap: 1rem;
     padding-right: 1rem;
-    animation: scrolling 5s linear infinite;
+    animation: scrolling 40s linear infinite;
 }
 
 .comment-card {
