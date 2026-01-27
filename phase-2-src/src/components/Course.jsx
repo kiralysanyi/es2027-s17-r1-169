@@ -4,6 +4,7 @@ import { DataContext } from "../providers/DataProvider";
 import { getFlagForLang } from "../utils/langUtils";
 import getCategoryColor from "../utils/getCategoryColor";
 import getDifficultyEmoji from "../utils/getDifficultyEmoji";
+import exportCalendarFile from "../utils/exportCalendarFile";
 
 /**
  * Course card to use in calendar
@@ -28,7 +29,7 @@ const Course = ({ course }) => {
     }, [])
 
     return <div
-        className={`course-card ${enableScrollAnim? "course-card-scroll-animation": ""}`}
+        className={`course-card ${enableScrollAnim ? "course-card-scroll-animation" : ""}`}
         tabIndex={0}
         onFocus={(ev) => {
             ev.target.scrollIntoView()
@@ -43,7 +44,7 @@ const Course = ({ course }) => {
             borderLeft: "0.5rem solid " + getCategoryColor(course.category)
         }}
     >
-        <span className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700">
+        <span className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700" onClick={() => exportCalendarFile(course)}>
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
         <span className="font-bold">
