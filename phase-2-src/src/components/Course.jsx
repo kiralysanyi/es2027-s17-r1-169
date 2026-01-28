@@ -7,6 +7,7 @@ import getDifficultyEmoji from "../utils/getDifficultyEmoji";
 import exportCalendarFile from "../utils/exportCalendarFile";
 import formatDate from "../utils/formatDate";
 import { TooltipContext } from "../providers/TooltipProvider";
+import priceFormatter from "../utils/priceFormatter";
 
 /**
  * Course card to use in calendar
@@ -92,12 +93,12 @@ const Course = ({ course }) => {
                 {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> &bull; <span className="font-bold italic"
                     onMouseEnter={(ev) => {
                         if (JSON.parse(selectedCurrency).name != "EUR") {
-                            showTooltip(`${course.price} EUR`)
+                            showTooltip(`${priceFormatter(course.price)} EUR`)
                         }
                     }}
 
                     onMouseLeave={hideTooltip}
-                > {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}</span>
+                > {priceFormatter(Math.floor(course.price / JSON.parse(selectedCurrency).value))} {JSON.parse(selectedCurrency).name}</span>
             </span> : ""
         }
 
