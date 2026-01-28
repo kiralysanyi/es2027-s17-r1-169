@@ -88,14 +88,16 @@ const Course = ({ course }) => {
         </span> : ""}
         <div className="w-full bg-gray-400" style={{ height: "1px" }}></div>
         {
-            selectedCurrency ? <span
-                onMouseEnter={(ev) => {
-                    showTooltip(`${getDifficultyEmoji(course.difficulty)} ${course.difficulty} - ${course.price} EUR`)
-                }}
+            selectedCurrency ? <span>
+                {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> &bull; <span className="font-bold italic"
+                    onMouseEnter={(ev) => {
+                        if (JSON.parse(selectedCurrency).name != "EUR") {
+                            showTooltip(`${course.price} EUR`)
+                        }
+                    }}
 
-                onMouseLeave={hideTooltip}
-            >
-                {getDifficultyEmoji(course.difficulty)} <span className="text-gray-500">{course.difficulty}</span> &bull; <span className="font-bold italic"> {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}</span>
+                    onMouseLeave={hideTooltip}
+                > {Math.floor(course.price / JSON.parse(selectedCurrency).value)} {JSON.parse(selectedCurrency).name}</span>
             </span> : ""
         }
 
