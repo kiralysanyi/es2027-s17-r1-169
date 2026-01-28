@@ -61,7 +61,11 @@ const Course = ({ course }) => {
             }}
 
             onMouseLeave={hideTooltip}
-            className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700" onClick={() => exportCalendarFile(course)}>
+            className="bg-blue-100 mr-auto p-1 px-2 rounded-full text-blue-700 truncate max-w-full border-2 border-blue-700" onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                exportCalendarFile(course)
+            }}>
             {formatKlok(startDate.getHours())}:{formatKlok(startDate.getMinutes())} - {formatKlok(endDate.getHours())}:{formatKlok(endDate.getMinutes())}
         </span>
         <span className="font-bold"
