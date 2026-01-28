@@ -4,6 +4,7 @@ import calculateRowCount from "../utils/calculateRowCount";
 import positionCourses from "../utils/positionCourses";
 import Course from "./Course";
 import { DataContext } from "../providers/DataProvider";
+import { TooltipContext } from "../providers/TooltipProvider";
 
 /**
  * Very good calendar component

@@ -99,3 +99,16 @@ select:hover {
         margin-left: 75%;
     }
 }
+
+.tooltip {
+    position: fixed;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    z-index: 1000;
+    pointer-events: none;
+    @apply bg-gray-200 border-2 border-purple-900 rounded-full;
+}
